@@ -101,7 +101,7 @@ function WorkPage() {
 
       {/* Gallery */}
       <section className="px-6 md:px-10 pb-24 space-y-6 max-w-7xl mx-auto">
-        {project.gallery.map((src, i) => (
+        {project.gallery.map((src: string, i: number) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, y: 40 }}
