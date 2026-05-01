@@ -38,7 +38,8 @@ function ContactPage() {
   };
 
   return (
-    <section className="min-h-screen pt-32 pb-32 px-6 md:px-10 bg-background bg-dotgrid">
+    <section className="min-h-screen pt-32 pb-32 px-6 md:px-10 bg-background ">
+    {/* <section className="min-h-screen pt-32 pb-32 px-6 md:px-10 bg-background bg-dotgrid"> */}
       <Toaster theme="dark" />
       <div className="max-w-7xl mx-auto">
         <SectionLabel number="—" category="// Contact" meta="Available Worldwide" />

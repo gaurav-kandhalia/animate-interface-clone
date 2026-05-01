@@ -5,7 +5,8 @@ import { FOOTER_PORTRAIT, SOCIAL_LINKS } from "@/lib/site-data";
 export function Footer() {
   return (
     <footer className="relative bg-background border-t border-border/40 overflow-hidden">
-      <div className="bg-dotgrid">
+      <div className="">
+      {/* <div className="bg-dotgrid"> */}
         <div className="px-6 md:px-10 pt-24 pb-12">
           {/* CTA */}
           <div className="text-center">

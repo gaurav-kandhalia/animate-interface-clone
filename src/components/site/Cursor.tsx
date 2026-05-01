@@ -6,21 +6,25 @@ export function Cursor() {
   const y = useMotionValue(-100);
   const sx = useSpring(x, { stiffness: 400, damping: 40, mass: 0.5 });
   const sy = useSpring(y, { stiffness: 400, damping: 40, mass: 0.5 });
+
   const [hover, setHover] = useState(false);
   const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (window.matchMedia("(pointer: coarse)").matches) return;
+
     setEnabled(true);
 
     const move = (e: MouseEvent) => {
       x.set(e.clientX);
       y.set(e.clientY);
+
       const t = e.target as HTMLElement | null;
       const interactive = t?.closest("a, button, [data-cursor='hover']");
       setHover(Boolean(interactive));
     };
+
     window.addEventListener("mousemove", move);
     return () => window.removeEventListener("mousemove", move);
   }, [x, y]);

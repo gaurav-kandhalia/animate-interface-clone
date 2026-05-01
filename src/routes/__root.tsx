@@ -3,6 +3,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Cursor } from "@/components/site/Cursor";
+import GridLines from "@/components/background/GridLines";
+import BackgroundTexture from "@/components/background/BackGroundTexture";
 
 import appCss from "../styles.css?url";
 
@@ -93,9 +95,33 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   return (
-    <>
+<>
+  <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
+
+    {/* 🔥 BASE BACKGROUND */}
+    <div className="absolute inset-0 z-0 " />
+
+    {/* 🔥 TEXTURE (UPDATED FOR THEME) */}
+    <div
+      className="absolute inset-0 z-[1] pointer-events-none"
+      style={{
+        backgroundImage:
+          "url('https://framerusercontent.com/images/ldf53R2pKtKErtQpdz1GxxWt2I.svg')",
+        backgroundRepeat: "repeat",
+        backgroundSize: "13px auto",
+        opacity: 0.08,                // 🔥 subtle
+        mixBlendMode: "soft-light",   // 🔥 correct for red theme
+      }}
+    />
+
+    {/* 🔥 GRID (MIDDLE LAYER) */}
+    <GridLines />
+
+    {/* 🔥 CONTENT (TOP LAYER) */}
+    <div className="relative z-10">
       <Cursor />
       <Nav />
+
       <AnimatePresence mode="wait">
         <motion.main
           key="main"
@@ -108,6 +134,9 @@ function RootComponent() {
           <Footer />
         </motion.main>
       </AnimatePresence>
-    </>
+    </div>
+
+  </div>
+</>
   );
 }

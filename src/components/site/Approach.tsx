@@ -26,21 +26,40 @@ const PHASES = [
 
 export function Approach() {
   return (
-    <section className="px-6 md:px-10 py-28 bg-background">
+<section className="relative px-6 md:px-10 py-28 bg-transparent z-10 border-2 border-red-700">
+
+  <div className="w-full h-screen overflow-hidden mb-16">
+  <video
+    src="https://framerusercontent.com/assets/gk6WdgzIrXmLcDTIslZMhlpZUk.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="w-full h-full object-cover"
+  />
+</div>
       <SectionLabel number="01" category="// Approach" meta="Three Phases" />
 
       <div className="mt-20 max-w-6xl mx-auto text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-20%" }}
-          transition={{ duration: 0.8 }}
-          className="font-display text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-[0.95]"
-        >
-          we are <span className="italic font-light">floe</span>
-          <br />
-          media &amp; co.
-        </motion.h2>
+<motion.h2
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, margin: "-20%" }}
+  transition={{ duration: 0.8 }}
+  className="
+    font-display text-foreground text-center whitespace-nowrap
+    text-[clamp(1.8rem,6vw,4rem)]
+    // md:text-[clamp(2.5rem,7vw,6rem)]
+   
+  "
+  style={{
+    fontWeight: 700,
+    letterSpacing: "-0.03em",
+    lineHeight: "0.9",
+  }}
+>
+  WE ARE <span className="italic font-light">FLOE</span> MEDIA & CO.
+</motion.h2>
         <p className="mt-8 max-w-xl mx-auto text-muted-foreground">
           Responsive design skills employed to maintain consistency across all
           devices and contexts.
