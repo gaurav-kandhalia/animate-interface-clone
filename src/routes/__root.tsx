@@ -48,6 +48,12 @@ export const Route = createRootRoute({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "floe — Digital Designer & Framer Developer" },
+      { name: "description", content: "A React application cloning a Framer website, featuring interactive elements and animations." },
+      { property: "og:description", content: "A React application cloning a Framer website, featuring interactive elements and animations." },
+      { name: "twitter:description", content: "A React application cloning a Framer website, featuring interactive elements and animations." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e31f7302-5946-416b-923c-1a764cbd5376/id-preview-5eb0e88e--0f85ea20-272f-4ab2-9a1c-244133d21ded.lovable.app-1777620803991.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e31f7302-5946-416b-923c-1a764cbd5376/id-preview-5eb0e88e--0f85ea20-272f-4ab2-9a1c-244133d21ded.lovable.app-1777620803991.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
