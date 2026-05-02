@@ -48,8 +48,7 @@ export function Approach() {
   transition={{ duration: 0.8 }}
   className="
     font-display text-foreground text-center whitespace-nowrap
-    text-[clamp(1.8rem,6vw,4rem)]
-    // md:text-[clamp(2.5rem,7vw,6rem)]
+
    
   "
   style={{
@@ -58,7 +57,9 @@ export function Approach() {
     lineHeight: "0.9",
   }}
 >
-  WE ARE <span className="italic font-light">FLOE</span> MEDIA & CO.
+<span className="text-foreground text-5xl md:text-7xl font-[var(--font-display)] uppercase font-bold tracking-[-0.05em]">
+  WE ARE FLOEE MEDIA & CO.
+</span>
 </motion.h2>
         <p className="mt-8 max-w-xl mx-auto text-muted-foreground">
           Responsive design skills employed to maintain consistency across all
@@ -165,7 +166,7 @@ const CircleNumber = ({ num }) => (
 
     {/* circle */}
     <div className="relative w-10 h-10 rounded-full 
-      bg-foreground text-background 
+      bg-card text-foreground 
       border border-foreground/20 
       text-xs flex items-center justify-center shadow-lg"
     >

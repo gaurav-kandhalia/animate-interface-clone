@@ -12,31 +12,61 @@ export function About() {
   const y = useTransform(scrollYProgress, [0, 1], [-40, 40]);
 
   return (
-    <section className="px-6 md:px-10 py-28 bg-background">
-      <SectionLabel number="03" category="// Who Am I" meta="Since 2000" />
+    <section className="  py-28 bg-background">
+    <div className="px-10">
+        <SectionLabel number="03" category="// Who Am I" meta="Since 2000" />
+    </div>
 
-      <div className="mt-20 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10">
-        <div className="md:col-span-5" ref={ref}>
-          <div className="relative overflow-hidden rounded-3xl aspect-[4/5] bg-surface">
+      <div className="mt-20   text-center border-2 border-red-700 mx-auto">
+
+<div className="text-center">
+
+  <p
+    className="
+      font-[var(--font-display)]
+      font-bold
+      uppercase
+      text-4xl md:text-7xl lg:text-8xl
+      tracking-[-0.05em]
+      leading-[0.9]
+      text-foreground
+    "
+  >
+    MORE ABOUT
+  </p>
+
+  <h2
+    className="
+      font-[var(--font-display)]
+      font-bold
+      uppercase
+      text-5xl md:text-8xl lg:text-9xl
+      tracking-[-0.05em]
+      leading-[0.85]
+    "
+  >
+    FLOE
+  </h2>
+
+</div>
+      <div className=" border-2 border-blue-700  w-full">
+          <div className="w-1/5 border-2 border-green-700" ref={ref}>
+          <div className="relative overflow-hidden  aspect-[4/5] bg-surface  min-h-screen rounded-[4px]">
             <motion.img
               src={ABOUT_PORTRAIT}
               alt="Portrait"
               style={{ y }}
-              className="w-full h-[115%] object-cover"
+              className="w-full  object-cover rounded-[4px]"
               loading="lazy"
             />
           </div>
         </div>
 
+      </div>
+        
+
         <div className="md:col-span-7 flex flex-col justify-between">
-          <div>
-            <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
-              More About
-            </p>
-            <h2 className="mt-2 font-display text-7xl md:text-9xl tracking-tighter leading-none">
-              <span className="italic font-light">floe</span>
-            </h2>
-          </div>
+        
 
           <div className="mt-12 space-y-8">
             <motion.p

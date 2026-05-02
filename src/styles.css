@@ -55,28 +55,29 @@
   --radius: 9999px;
 
   /* 🔥 NEW THEME */
-  --background: #420219;
-  --foreground: #FEEFCE;
+  --background: black;
+
+  --foreground: white;
 
   --surface: #5a0223;
 
-  --card: #5a0223;
+  --card: #161616;
   --card-foreground: #FEEFCE;
 
   --popover: #5a0223;
-  --popover-foreground: #FEEFCE;
+  --popover-foreground: white;
 
-  --primary: #FEEFCE;
+  --primary: white;
   --primary-foreground: #420219;
 
   --secondary: #6e0330;
-  --secondary-foreground: #FEEFCE;
+  --secondary-foreground: gray;
 
   --muted: #5a0223;
-  --muted-foreground: #e6d9b0;
+  --muted-foreground: gray;
 
   --accent: #7a0335;
-  --accent-foreground: #FEEFCE;
+  --accent-foreground: white;
 
   --destructive: #ff4d6d;
   --destructive-foreground: #fff;
