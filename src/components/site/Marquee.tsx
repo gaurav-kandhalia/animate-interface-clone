@@ -1,38 +1,44 @@
 type Props = {
   images: string[];
-  speed?: "normal" | "slow";
   size?: "sm" | "md" | "lg";
 };
 
-export function Marquee({ images, speed = "normal", size = "md" }: Props) {
+export function Marquee({ images, size = "md" }: Props) {
   const sizeClass =
     size === "sm"
       ? "h-20 w-28"
       : size === "lg"
-        ? "h-44 w-64"
-        : "h-32 w-48";
-  const list = [...images, ...images, ...images];
+      ? "h-44 w-64"
+      : "h-32 w-52";
 
   return (
-    <div className="relative overflow-hidden">
-      <div
-        className={`flex gap-4 w-max ${
-          speed === "slow" ? "animate-marquee-slow" : "animate-marquee"
-        }`}
-      >
-        {list.map((src, i) => (
+    <div className="relative py-10 overflow-hidden ">
+
+      {/* 🔥 edge fade using theme */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+
+      {/* 🔥 static row */}
+      <div className="flex justify-center gap-10 flex-wrap md:flex-nowrap max-w-7xl mx-auto ">
+
+        {images.map((src, i) => (
           <div
             key={i}
-            className={`${sizeClass} flex-shrink-0 overflow-hidden rounded-xl bg-surface`}
+            className={`${sizeClass} flex-shrink-0 border
+              bg-card  border-border 
+              flex items-center justify-center
+              transition duration-300 
+              hover:border-foreground/20 hover:shadow-lg`}
           >
             <img
               src={src}
               alt=""
               loading="lazy"
-              className="w-full h-full object-cover"
+              className="max-h-[45%] object-contain opacity-70 hover:opacity-100 transition"
             />
           </div>
         ))}
+
       </div>
     </div>
   );

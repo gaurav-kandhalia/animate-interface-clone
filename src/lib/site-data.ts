@@ -45,7 +45,7 @@ export const PROJECTS: Project[] = [
     slug: "seventy-seven",
     title: "Seventy Seven",
     category: "Automobiles",
-    cover: "https://framerusercontent.com/images/lcBHCqWDW2WLF250v2c9Gd7G6Hk.jpg",
+    cover: "https://framerusercontent.com/images/lcBHCqWDW2WLF250v2c9Gd7G6Hk.jpg?scale-down-to=512",
     year: "2024",
     client: "Seventy Seven Motors",
     role: "Brand & Web",

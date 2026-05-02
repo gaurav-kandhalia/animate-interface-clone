@@ -5,70 +5,92 @@ import { SectionLabel } from "./SectionLabel";
 import { PROJECTS } from "@/lib/site-data";
 
 export function Portfolio() {
+
+  const [first, second, third, ...rest] = PROJECTS;
+
   return (
-    <section className="px-6 md:px-10 py-28 bg-background">
+    <section className="md:px-10 py-28">
       <SectionLabel number="02" category="// Portfolio" meta="2020 — 2025" />
 
-      <div className="mt-20 text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-20%" }}
-          transition={{ duration: 0.8 }}
-          className="font-display text-6xl md:text-8xl lg:text-9xl tracking-tighter leading-[0.9]"
-        >
-          Latest
-          <br />
-          <span className="italic font-light">Portfolio</span>
-        </motion.h2>
-        <p className="mt-8 max-w-xl mx-auto text-muted-foreground">
-          A creative spirit alive in the digital realm — nimble fingers flying
-          across devices, ideas pouring out as work.
-        </p>
-      </div>
+      <div className="mt-20 max-w-7xl mx-auto px-4 space-y-16">
 
-      <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {PROJECTS.map((p, i) => (
-          <motion.div
-            key={p.slug}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10%" }}
-            transition={{ duration: 0.7, delay: i * 0.08 }}
-          >
-            <Link
-              to="/work/$slug"
-              params={{ slug: p.slug }}
-              className="group block"
-            >
-              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-surface">
-                <motion.img
-                  src={p.cover}
-                  alt={p.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.06 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                />
-                <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background/80 backdrop-blur flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <ArrowUpRight className="w-4 h-4" />
-                </div>
-              </div>
-              <div className="mt-5 flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="font-display text-xl">{p.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    {p.category}
-                  </p>
-                </div>
-                <span className="font-mono text-xs text-muted-foreground">
-                  {p.year}
-                </span>
-              </div>
-            </Link>
-          </motion.div>
-        ))}
+        {/* 🔥 ROW 1 */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+          <Card project={first} className="lg:col-span-2" />
+          <Card project={second} />
+        </div>
+
+        {/* 🔥 ROW 2 (CENTER CARD) */}
+        <div className="flex justify-center">
+          <div className="w-full lg:w-[60%]">
+            <Card project={third} />
+          </div>
+        </div>
+
+        {/* 🔥 REST GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {rest.map((p) => (
+            <Card key={p.slug} project={p} />
+          ))}
+        </div>
+
       </div>
     </section>
+  );
+}
+
+
+
+function Card({ project, className = "" }) {
+  return (
+    <Link
+      to="/work/$slug"
+      params={{ slug: project.slug }}
+      className={`group block ${className}`}
+    >
+      {/* IMAGE */}
+      <div
+        data-cursor="view"
+        className="relative h-[320px] md:h-[380px] overflow-hidden rounded-xl cursor-none"
+      >
+        <img
+          src={project.cover}
+          className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+        />
+
+        {/* VIEW */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+          <div className="px-6 py-2 rounded-full bg-white text-black text-sm font-medium">
+            VIEW
+          </div>
+        </div>
+      </div>
+
+      {/* DOTS */}
+      <div className="flex gap-2 mt-4">
+        {[0,1,2,3].map((i) => (
+          <span
+            key={i}
+            className={`w-2 h-2 rounded-full ${
+              i === 0 ? "bg-white" : "bg-white/30"
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* TITLE + ARROW */}
+      <div className="mt-3 flex justify-between items-center">
+        <h3 className="font-[var(--font-display)] text-lg">
+          {project.title}
+        </h3>
+
+        <ArrowUpRight className="w-5 h-5 opacity-70 group-hover:translate-x-1 transition" />
+      </div>
+
+      {/* CATEGORY */}
+      <p className="text-xs text-muted-foreground mt-1">
+        {project.category}
+      </p>
+    </Link>
   );
 }

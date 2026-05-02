@@ -15,8 +15,13 @@ export function SectionLabel({ number, category, meta }: Props) {
       transition={{ duration: 0.6 }}
       className="flex items-center justify-between font-mono text-[11px] tracking-[0.25em] uppercase text-muted-foreground border-y border-border/60 py-4"
     >
-      <span className="text-foreground">{number}</span>
+      {/* 🔥 hide on sm + md, show on lg+ */}
+      <span className="hidden lg:block text-foreground">
+        {number}
+      </span>
+
       <span>{category}</span>
+
       {meta && <span>{meta}</span>}
     </motion.div>
   );
