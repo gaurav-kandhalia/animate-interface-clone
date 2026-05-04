@@ -1,50 +1,42 @@
 import { motion } from "framer-motion";
 import { MapPin, Globe, BadgeCheck } from "lucide-react";
 
-const LETTERS = ["f", "l", "o", "e"];
 
 export function Hero() {
   return (
 <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
 
-  <div className="flex-1 flex items-center justify-center pt-28">
-    <h1 className="sr-only">floe</h1>
+  <div className="flex-1 flex flex-col items-center justify-center pt-2 gap-0">
+    <h1 className="sr-only">Buzz Culture</h1>
 
- <div className="w-full flex justify-center overflow-hidden">
-  <motion.h1
-    className="flex text-foreground leading-none whitespace-nowrap
- text-[clamp(7.5rem,34vw,75rem)]
-    md:text-[clamp(9.5rem,42vw,85rem)]
-    lg:text-[clamp(13rem,50vw,110rem)]
-    "
-    style={{
-      // fontSize: "clamp(10rem, 30vw, 40rem)",
-      fontWeight: 900,
-      letterSpacing: "0.02em",
-      whiteSpace: "nowrap",
-       lineHeight: "0.8"
-    }}
-  >
-    {LETTERS.map((char, i) => (
+    {/* buzz - large */}
+    <div className="w-full flex justify-center overflow-hidden">
       <motion.span
-        key={i}
+        className="font-display text-foreground leading-none whitespace-nowrap text-[24vw]"
+        style={{ fontWeight: 600, letterSpacing: "-0.01em", lineHeight: "0.85" }}
         initial={{ y: "-60%", opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{
-          duration: 1,
-          ease: [0.16, 1, 0.3, 1],
-          delay: 0.2 + i * 0.08,
-        }}
-        className="inline-block"
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
       >
-        {char}
+        buzz
       </motion.span>
-    ))}
-  </motion.h1>
-</div>
+    </div>
+
+    {/* culture - smaller */}
+    <div className="w-full flex justify-center overflow-hidden">
+      <motion.span
+        className="font-display text-foreground leading-none whitespace-nowrap text-[28vw]"
+        style={{ fontWeight: 600, letterSpacing: "-0.01em", lineHeight: "0.85" }}
+        initial={{ y: "60%", opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
+      >
+        culture
+      </motion.span>
+    </div>
   </div>
 
-<div className="mt-18 border-y border-border/60">
+<div className="mt-10 border-y border-border/60">
 
   <motion.div
     initial={{ opacity: 0, y: 30 }}
@@ -54,23 +46,26 @@ export function Hero() {
       grid grid-cols-1 md:grid-cols-3
       divide-y md:divide-y-0 md:divide-x
       divide-border/60
-      px-6 md:px-10 py-2 text-center
+      px-22 py-4
     "
   >
     <Pill
       icon={<MapPin className="w-5 h-5 text-brand-green" />}
       top="Based in Ludhiana,"
       bottom="Punjab"
+      align="left"
     />
     <Pill
       icon={<Globe className="w-5 h-5 text-foreground" />}
       top="Available all around"
       bottom="Worldwide"
+      align="center"
     />
     <Pill
       icon={<BadgeCheck className="w-5 h-5 text-brand-blue" />}
       top="Media Company"
       bottom="+ Framer Developer"
+      align="right"
     />
   </motion.div>
 </div>
@@ -83,20 +78,30 @@ function Pill({
   icon,
   top,
   bottom,
+  align = "center",
 }: {
   icon: React.ReactNode;
   top: string;
   bottom: string;
+  align?: "left" | "center" | "right";
 }) {
+  const cellAlign = {
+    left: "items-start",
+    center: "items-center",
+    right: "items-end",
+  }[align];
+
   return (
-    <div className="flex flex-col items-center gap-2">
-      <div className="mb-1">{icon}</div>
-      <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-foreground">
-        {top}
-      </p>
-      <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-muted-foreground">
-        {bottom}
-      </p>
+    <div className={`flex flex-col py-2 ${cellAlign}`}>
+      <div className="flex flex-col items-center gap-1 w-fit">
+        <div className="mb-3">{icon}</div>
+        <p className="font-display text-sm font-semibold uppercase tracking-normal text-foreground whitespace-nowrap">
+          {top}
+        </p>
+        <p className="font-display text-sm font-normal uppercase tracking-normal text-muted-foreground whitespace-nowrap">
+          {bottom}
+        </p>
+      </div>
     </div>
   );
 }

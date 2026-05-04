@@ -20,26 +20,26 @@ export function Nav() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 px-6 md:px-10 py-5"
+      className="px-7.5  py-7"
     >
       <div className="flex items-center justify-between">
-        <div className="font-mono text-xs md:text-sm tracking-widest text-foreground/80">
-          <span className="text-muted-foreground">LOCAL/</span>{" "}
-          <span className="tabular-nums">{time}</span>
+        <div className="font-display text-lg tracking-normal font-medium text-foreground/80 uppercase">
+          <span className="text-foreground/60">LOCAL/</span>
+          <span className="tabular-nums text-foreground">{time}</span>
         </div>
 
         <button
           aria-label="Menu"
-          className="hidden md:grid grid-cols-2 gap-1.5 p-2 rounded-full hover:bg-accent transition-colors"
+          className="grid grid-cols-2 gap-[5px] p-2 rounded-full hover:bg-white/10 transition-colors"
         >
           {Array.from({ length: 4 }).map((_, i) => (
-            <span key={i} className="w-1 h-1 rounded-full bg-foreground/80" />
+            <span key={i} className="w-[5px] h-[5px] rounded-full bg-foreground" />
           ))}
         </button>
 
         <Link
           to="/contact"
-          className="group relative inline-flex items-center justify-center rounded-full border border-foreground/40 px-5 md:px-6 py-2.5 md:py-3 font-mono text-[11px] md:text-xs tracking-[0.18em] uppercase hover:bg-foreground hover:text-background transition-colors"
+          className="inline-flex items-center justify-center rounded-full border-2 border-foreground px-5  py-2 font-display text-lg  tracking-normal font-bold uppercase hover:bg-foreground hover:text-background transition-colors duration-200"
         >
           Contact Now
         </Link>

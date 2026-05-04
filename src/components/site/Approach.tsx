@@ -26,11 +26,11 @@ const PHASES = [
 
 export function Approach() {
   return (
-<section className="relative px-6 md:px-10 py-28 bg-transparent z-10 w-full">
+<section className="relative px-0  py-18 bg-transparent z-10 w-full">
 
   <div className="w-full h-screen overflow-hidden mb-16">
   <video
-    src="https://framerusercontent.com/assets/gk6WdgzIrXmLcDTIslZMhlpZUk.mp4"
+    src="https://res.cloudinary.com/dxn9c9m1m/video/upload/v1777896763/gk6WdgzIrXmLcDTIslZMhlpZUk_nzdaeq.mov"
     autoPlay
     loop
     muted
@@ -40,30 +40,24 @@ export function Approach() {
 </div>
       <SectionLabel number="01" category="// Approach" meta="Three Phases" />
 
-      <div className="mt-20 max-w-6xl mx-auto text-center ">
-<motion.h2
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, margin: "-20%" }}
-  transition={{ duration: 0.8 }}
-  className="
-    font-display text-foreground text-center whitespace-nowrap
-
-   
-  "
-  style={{
-    fontWeight: 700,
-    letterSpacing: "-0.03em",
-    lineHeight: "0.9",
-  }}
->
-<span className="text-foreground text-5xl md:text-7xl font-[var(--font-display)] uppercase font-bold tracking-[-0.05em]">
-  WE ARE FLOEE MEDIA & CO.
-</span>
-</motion.h2>
-        <p className="mt-8 max-w-xl mx-auto text-muted-foreground">
-          Responsive design skills employed to maintain consistency across all
-          devices and contexts.
+      <div className="mt-16 w-full overflow-hidden">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-20%" }}
+          transition={{ duration: 0.8 }}
+          className="font-display text-foreground whitespace-nowrap text-center"
+          style={{
+            fontWeight: 600,
+            letterSpacing: "-0.02em",
+            lineHeight: "0.9",
+            fontSize: "clamp(2rem, 7vw, 14rem)",
+          }}
+        >
+          WE ARE FLOE MEDIA & CO.
+        </motion.h2>
+        <p className="mt-8 max-w-xl mx-auto text-center text-muted-foreground">
+          I employed responsive design skills to maintain consistency across all devices.
         </p>
       </div>
 
