@@ -96,7 +96,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
 function RootComponent() {
   return (
 <>
-  <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
+  <div className="relative min-h-screen overflow-x-clip bg-background text-foreground">
 
     {/* 🔥 BASE BACKGROUND */}
     <div className="absolute inset-0 z-0 " />

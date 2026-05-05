@@ -13,16 +13,16 @@ export function SectionLabel({ number, category, meta }: Props) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-15%" }}
       transition={{ duration: 0.6 }}
-      className="flex items-center justify-between font-mono text-[11px] tracking-[0.25em] uppercase text-muted-foreground border-y border-border/60 py-4"
+      className="flex items-center justify-between font-display text-[13px] tracking-[0.25em] uppercase text-foreground/30 border-y border-border/60 py-4 px-10"
     >
       {/* 🔥 hide on sm + md, show on lg+ */}
-      <span className="hidden lg:block text-foreground">
+      <span className="hidden lg:block text-foreground font-medium">
         {number}
       </span>
 
-      <span>{category}</span>
+      <span className="text-foreground font-medium">{category}</span>
 
-      {meta && <span>{meta}</span>}
+      {meta && <span className="font-medium text-foreground/40">{meta}</span>}
     </motion.div>
   );
 }

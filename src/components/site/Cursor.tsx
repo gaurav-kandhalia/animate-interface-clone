@@ -37,7 +37,7 @@ export function Cursor() {
   return (
 <motion.div
   style={{ x: sx, y: sy }}
-  className="pointer-events-none fixed top-0 left-0 z-[100] mix-blend-difference"
+  className={`pointer-events-none fixed top-0 left-0 z-[100] ${view ? "" : "mix-blend-difference"}`}
 >
   <motion.div
     animate={{ scale: view ? 1.8 : hover ? 2.4 : 1 }}

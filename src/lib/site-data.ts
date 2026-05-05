@@ -30,7 +30,6 @@ export const APPROACH_MARQUEE = [
 export type Project = {
   slug: string;
   title: string;
-  category: string;
   cover: string;
   year: string;
   client: string;
@@ -43,8 +42,7 @@ export type Project = {
 export const PROJECTS: Project[] = [
   {
     slug: "seventy-seven",
-    title: "Seventy Seven",
-    category: "Automobiles",
+    title: "Automobiles",
     cover: "https://framerusercontent.com/images/lcBHCqWDW2WLF250v2c9Gd7G6Hk.jpg?scale-down-to=512",
     year: "2024",
     client: "Seventy Seven Motors",
@@ -60,8 +58,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "scrambler",
-    title: "Scrambler",
-    category: "Events & Production Photography",
+    title: "Events & Production",
     cover: "https://framerusercontent.com/images/pCoD88DKMR6u8sV967pM6PHtCQ.jpg",
     year: "2023",
     client: "Scrambler Co.",
@@ -77,8 +74,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "zudio-garage",
-    title: "Zudio Garage",
-    category: "Fashion & Lifestyle Business",
+    title: "Fashion & Lifestyle",
     cover: "https://framerusercontent.com/images/niBAdMw0P4uWuJBe7CqezeO87Bo.jpg",
     year: "2025",
     client: "Zudio Garage",
@@ -95,11 +91,66 @@ export const PROJECTS: Project[] = [
 ];
 
 export const SERVICES = [
-  { title: "Full Website Sprint", subtitle: "Effortless Execution, Rapid Results" },
-  { title: "Motion Design", subtitle: "Interaction Design, Usability Audits" },
-  { title: "Full Design Package", subtitle: "Logo creation, typography, materials" },
-  { title: "React Development", subtitle: "Full Website Development" },
-  { title: "Web Design", subtitle: "Figma File, Sketch File" },
+  {
+    title: "Full Website Sprint",
+    subtitle: "Effortless Execution, Rapid Results",
+    image: "https://framerusercontent.com/images/gPqr7rZSe49I2LnZy4JermGDfw.jpg",
+    features: [
+      "Pricing Starts At $3,999",
+      "Kickoff & Planning",
+      "Design & Prototyping",
+      "Development & Testing",
+      "Launch & Optimization",
+    ],
+  },
+  {
+    title: "Motion Design",
+    subtitle: "Interaction Design, Usability Audits",
+    image: "https://framerusercontent.com/images/R84IjjWIM9LGPSTUT6xDg5XHh4.jpg",
+    features: [
+      "Pricing Starts At $1,999",
+      "Brand Motion Audit",
+      "Micro-interaction Design",
+      "Animation Prototyping",
+      "Final Asset Delivery",
+    ],
+  },
+  {
+    title: "Full Design Package",
+    subtitle: "Logo Creation, Typography, Materials",
+    image: "https://framerusercontent.com/images/niBAdMw0P4uWuJBe7CqezeO87Bo.jpg",
+    features: [
+      "Pricing Starts At $2,499",
+      "Logo & Visual Identity",
+      "Typography System",
+      "Color & Materials",
+      "Brand Guidelines",
+    ],
+  },
+  {
+    title: "React Development",
+    subtitle: "Full Website Development",
+    image: "https://framerusercontent.com/images/CkRGbZ3Tef83yc5ibFgim9s6w.jpg",
+    features: [
+      "Pricing Starts At $4,999",
+      "Component Architecture",
+      "API Integration",
+      "Performance Optimization",
+      "Deployment & Support",
+    ],
+  },
+  {
+    title: "Web Design",
+    subtitle: "Figma File, Sketch File",
+    image: "https://framerusercontent.com/images/pCoD88DKMR6u8sV967pM6PHtCQ.jpg",
+    features: [
+      "Pricing Starts At $999",
+      "Wireframing & Layout",
+      "Responsive Design",
+      "Design System Setup",
+      "Handoff-ready Files",
+    ],
+  },
 ];
 
 export const VOICE_GALLERY = [

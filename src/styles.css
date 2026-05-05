@@ -176,7 +176,7 @@ body {
     to   { transform: translateX(-50%); }
   }
   .animate-marquee {
-    animation: marquee-x 40s linear infinite;
+    animation: marquee-x 25s linear infinite;
   }
   .animate-marquee-slow {
     animation: marquee-x 80s linear infinite;
