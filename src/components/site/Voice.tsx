@@ -52,83 +52,107 @@ export function Voice() {
   const words = STATEMENT.split(" ");
 
   return (
-    <section ref={ref} className="relative bg-background">
+    <section ref={ref} className=" bg-background ">
       <SectionLabel number="05" category="// Voice of Grey" meta="Since 2000" />
 
       {/* Scroll canvas — 360vh gives ~260vh of sticky scroll time */}
-      <div className="min-h-[360vh]">
-        <div className="sticky top-0 h-screen overflow-hidden">
+   <div className="relative">
 
-          {/* FIXED TEXT — shrinks as images layer on top */}
-          <motion.div
-            style={{ scale: headlineScale }}
-            className="absolute inset-0 flex flex-col items-center justify-center z-10 px-6 md:px-10 select-none pointer-events-none"
+  {/* TEXT LAYER */}
+  <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+    
+    <motion.div className="relative z-0 px-6 md:px-10 pointer-events-none w-[70%]">
+      
+      <p
+        className="
+          font-[family-name:var(--font-display)]
+          font-bold uppercase
+          text-[clamp(1.2rem,2.8vw,3rem)]
+          tracking-[-0.03em]
+          leading-[1.05]
+          text-center
+          text-foreground
+        "
+      >
+        {words.map((w, i) => (
+          <span
+            key={i}
+            className="inline-block mr-[0.22em]"
           >
-            <p
-              className="
-                font-[family-name:var(--font-display)]
-                font-bold uppercase
-                text-[clamp(2.2rem,4.8vw,5rem)]
-                tracking-[-0.03em] leading-[1.05]
-                text-center text-foreground
-              "
-            >
-              {words.map((w, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0.08 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true, margin: "-20%" }}
-                  transition={{ duration: 0.45, delay: i * 0.025 }}
-                  className="inline-block mr-[0.22em]"
-                >
-                  {w}
-                </motion.span>
-              ))}
-            </p>
+            {w}
+          </span>
+        ))}
+      </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="mt-10"
-            >
-              <span
-                style={{ fontFamily: "'Dancing Script', cursive" }}
-                className="text-5xl md:text-6xl text-foreground font-bold"
-              >
-                Santwayne
-              </span>
-            </motion.div>
-          </motion.div>
-
-          {/* IMAGES — rise one by one from below on each scroll step */}
-          {VOICE_GALLERY.map((src, i) => (
-            <motion.div
-              key={i}
-              style={{
-                y: yValues[i],
-                left: LAYOUT[i].left,
-                top: LAYOUT[i].top,
-                width: LAYOUT[i].width,
-                zIndex: 20 + i,          // later images sit on top
-              }}
-              className="absolute"
-            >
-              <div className="h-[36vh] rounded-2xl overflow-hidden bg-foreground/5">
-                <img
-                  src={src}
-                  alt=""
-                  loading="lazy"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </motion.div>
-          ))}
-
-        </div>
+      <div className="mt-10 text-center">
+        <span
+          style={{ fontFamily: "'Dancing Script', cursive" }}
+          className="text-2xl  text-foreground font-bold"
+        >
+          Santwayne
+        </span>
       </div>
+
+    </motion.div>
+  </div>
+
+  {/* IMAGES LAYER */}
+  <div className="relative z-10">
+
+    <div className=" flex justify-between w-[80%] mx-auto">
+      
+      <div className="w-1/4 flex items-end">
+        <img
+          src={VOICE_GALLERY[1]}
+          className="w-full h-[30vh] object-cover rounded-[4px]"
+        />
+      </div>
+
+      <div className="w-1/4">
+        <img
+          src={VOICE_GALLERY[2]}
+          className="w-full h-[50vh] object-cover rounded-[4px]"
+        />
+      </div>
+
+    </div>
+
+    <div className="w-[20%] mx-auto mt-44">
+      <img
+        src={VOICE_GALLERY[3]}
+        className="w-full h-[30vh] object-cover rounded-[4px]"
+      />
+    </div>
+
+    <div className="flex justify-between w-[80%] mx-auto mt-44">
+      
+      <div className="w-1/4">
+        <img
+          src={VOICE_GALLERY[4]}
+          className="w-full h-[40vh] object-cover rounded-[4px]"
+        />
+      </div>
+
+      <div className="w-[20%] flex items-end">
+        <img
+          src={VOICE_GALLERY[5]}
+          className="w-full h-[25vh] object-cover rounded-[4px]"
+        />
+      </div>
+
+    </div>
+
+    <div className="h-screen w-[32%] mx-auto py-4 mt-44">
+      <img
+        src={VOICE_GALLERY[6]}
+        className="w-full h-full object-cover rounded-[4px]"
+      />
+    </div>
+
+
+  <div className="h-[50vh]"></div>
+  </div>
+</div>
     </section>
   );
 }

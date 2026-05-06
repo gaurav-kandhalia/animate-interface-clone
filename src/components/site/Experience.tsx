@@ -1,51 +1,175 @@
-import { motion } from "framer-motion";
-import { SectionLabel } from "./SectionLabel";
-import { Marquee } from "./Marquee";
-import { EXPERIENCE, EXPERIENCE_MARQUEE } from "@/lib/site-data";
+"use client";
+
+import {
+  motion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+
+import { useRef } from "react";
+import { EXPERIENCE } from "@/lib/site-data";
 
 export function Experience() {
   return (
-    <section className="bg-background py-28">
-      <div className="px-6 md:px-10">
-        <SectionLabel number="07" category="// Experience" meta="2013 — Present" />
+    <section className="relative min-h-screen bg-black text-white overflow-hidden">
+
+      {/* GRID LINES */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-[22%] top-0 h-full w-px bg-white/10" />
+        <div className="absolute left-1/2 top-0 h-full w-px bg-white/10" />
       </div>
 
-      <div className="mt-20 px-6 md:px-10 max-w-5xl mx-auto">
-        <h2 className="font-mono text-xs tracking-[0.3em] uppercase text-muted-foreground mb-12">
-          Experience
-        </h2>
-        <ul>
-          {EXPERIENCE.map((e, i) => (
-            <motion.li
-              key={e.company}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.6, delay: i * 0.06 }}
-              className="grid grid-cols-1 md:grid-cols-12 gap-6 py-10 border-t border-border/60"
-            >
-              <div className="md:col-span-3">
-                <h3 className="font-display text-3xl tracking-tight">
-                  {e.company}
-                </h3>
-              </div>
-              <div className="md:col-span-3 text-muted-foreground">
-                {e.role}
-              </div>
-              <div className="md:col-span-2 font-mono text-xs tracking-widest text-muted-foreground">
-                {e.period}
-              </div>
-              <div className="md:col-span-4 text-muted-foreground">
-                {e.description}
-              </div>
-            </motion.li>
-          ))}
-        </ul>
+      {/* TOP BAR */}
+      <div className="flex items-center justify-between px-8 pt-6 text-sm uppercase tracking-[0.2em] text-white/60">
+        <span>07</span>
+        <span>//Experience</span>
+        <span>2013 - Present</span>
       </div>
 
-      <div className="mt-24">
-        <Marquee images={EXPERIENCE_MARQUEE} size="lg" speed="slow" />
+      {/* MAIN LAYOUT */}
+      <div className="flex flex-col md:flex-row  mt-24 justify-between ">
+
+        {/* LEFT TITLE */}
+        <div className="px-8 w-1/4">
+          <h2
+            className="
+              text-3xl
+              leading-none
+              font-black
+              uppercase
+              tracking-[-0.02em]
+              sticky
+              top-24
+              font-display
+            "
+          >
+            Experience
+          </h2>
+        </div>
+
+        {/* RIGHT CONTENT */}
+        <div className="px-8 lg:px-20 w-[70%]">
+
+          <div className="max-w-4xl ml-auto">
+
+            {EXPERIENCE.map((e, i) => (
+              <ExperienceItem
+                key={e.company}
+                e={e}
+              />
+            ))}
+
+          </div>
+
+        </div>
       </div>
     </section>
+  );
+}
+
+function ExperienceItem({
+  e,
+}: {
+  e: any;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+
+    // ONLY ANIMATE WHILE ENTERING
+    offset: ["start end", "start center"],
+  });
+
+  // INCOMING CARD MOVES UP
+  const y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [120, 0]
+  );
+
+  // FADE IN
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0.3, 1]
+  );
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{
+        y,
+        opacity,
+      }}
+      className="
+        relative
+        py-10
+        border-b
+        border-white/10
+        will-change-transform
+      "
+    >
+
+      {/* YEAR */}
+      <div
+        className="
+          absolute
+          right-0
+          top-24
+          text-sm
+          text-white/40
+          tracking-wide
+          uppercase
+        "
+      >
+        {e.period}
+      </div>
+
+      {/* CONTENT */}
+      <div className="max-w-2xl">
+
+        <h3
+          className="
+            text-2xl
+            font-bold
+            uppercase
+            tracking-[-0.02em]
+            font-display
+          "
+        >
+          {e.company}
+        </h3>
+
+        <p
+          className="
+            mt-3
+            text-sm
+            uppercase
+            text-white/70
+            font-semibold
+            tracking-[-0.02em]
+            font-display
+            
+          "
+        >
+          {e.role}
+        </p>
+
+        <p
+          className="
+            mt-3
+            text-xl
+            tracking-[-0.05em]
+            text-white/45
+            max-w-xl
+            leading-[1.6]
+          "
+        >
+          {e.description}
+        </p>
+
+      </div>
+    </motion.div>
   );
 }
