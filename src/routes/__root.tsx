@@ -99,20 +99,19 @@ function RootComponent() {
   <div className="relative min-h-screen overflow-x-clip bg-background text-foreground">
 
     {/* 🔥 BASE BACKGROUND */}
-    <div className="absolute inset-0 z-0 " />
+    <div className="absolute inset-0 z-[1] pointer-events-none " />
 
     {/* 🔥 TEXTURE (UPDATED FOR THEME) */}
-    <div
-      className="absolute inset-0 z-[1] pointer-events-none"
-      style={{
-        backgroundImage:
-          "url('https://framerusercontent.com/images/ldf53R2pKtKErtQpdz1GxxWt2I.svg')",
-        backgroundRepeat: "repeat",
-        backgroundSize: "13px auto",
-        opacity: 0.08,                // 🔥 subtle
-        mixBlendMode: "soft-light",   // 🔥 correct for red theme
-      }}
-    />
+<div
+  className="absolute inset-0 z-[1] pointer-events-none"
+  style={{
+    backgroundImage:
+      "url('https://framerusercontent.com/images/ldf53R2pKtKErtQpdz1GxxWt2I.svg')",
+    backgroundRepeat: "repeat",
+    backgroundSize: "13px auto",
+    opacity: 0.06,
+  }}
+/>
 
     {/* 🔥 GRID (MIDDLE LAYER) */}
     <GridLines />

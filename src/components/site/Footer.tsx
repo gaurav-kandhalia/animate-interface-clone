@@ -1,65 +1,117 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { FOOTER_PORTRAIT, SOCIAL_LINKS } from "@/lib/site-data";
+import { SectionLabel } from "./SectionLabel";
+ import { ArrowUpRight } from "lucide-react";
+ import {  useScroll, useTransform,useSpring } from "framer-motion";
+import { useRef } from "react";
+
 
 export function Footer() {
+
+  const ref = useRef<HTMLDivElement>(null);
+
+const { scrollYProgress } = useScroll({
+  target: ref,
+  offset: ["start end", "center center"],
+});
+
+const buzzRaw = useTransform(
+  scrollYProgress,
+  [0, 1],
+  [80, 0]
+);
+
+const cultureRaw = useTransform(
+  scrollYProgress,
+  [0, 1],
+  [100, 0]
+);
+
+const opacityRaw = useTransform(
+  scrollYProgress,
+  [0, 1],
+  [0.2, 1]
+);
+
+const buzzY = useSpring(buzzRaw, {
+  stiffness: 40,
+  damping: 18,
+  mass: 1.2,
+});
+
+const cultureY = useSpring(cultureRaw, {
+  stiffness: 40,
+  damping: 18,
+  mass: 1.2,
+});
+
+const opacity = useSpring(opacityRaw, {
+  stiffness: 40,
+  damping: 18,
+});
+  
   return (
-    <footer className="relative bg-background border-t border-border/40 overflow-hidden">
+    <footer className="relative bg-background border-t border-border/40 overflow-hidden border-2 border-red-700">
       <div className="">
+         <SectionLabel number="08" category="//Award" meta="Recogination" />
       {/* <div className="bg-dotgrid"> */}
         <div className="px-6 md:px-10 pt-24 pb-12">
           {/* CTA */}
-          <div className="text-center">
-            <p className="font-mono text-xs tracking-[0.25em] text-muted-foreground uppercase mb-4">
-              08 // Awards · Recognition
-            </p>
+          <div className="text-center   mx-auto mt-20">
+       
             <motion.h2
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20%" }}
               transition={{ duration: 0.8 }}
-              className="font-display text-[18vw] md:text-[14vw] leading-[0.85] tracking-tighter"
+              className="font-[var(--font-display)] text-9xl font-bold  leading-[0.77] uppercase tracking-[-0.4rem]"
             >
               Let&apos;s Work
               <br />
-              <span className="italic font-light">Together</span>
+              <span className=" font-[var(--font-display)]">Together</span>
             </motion.h2>
 
-            <Link
-              to="/contact"
-              className="mt-10 inline-flex items-center gap-3 rounded-full border border-foreground/50 px-7 py-4 font-mono text-xs tracking-[0.2em] uppercase hover:bg-foreground hover:text-background transition-colors"
-            >
-              Contact Now →
-            </Link>
+<Link
+  to="/contact"
+  className="group relative mt-10 inline-flex overflow-hidden rounded-full border border-foreground/50 px-7 py-2 font-[var(--font-display)] text-sn tracking-[-0.02em] uppercase bg-white font-bold"
+>
+  {/* Curtain Layer */}
+  <span className="absolute inset-0 bg-black translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0" />
+
+  {/* Text */}
+  <span className="relative z-10 flex items-center gap-3 text-black transition-colors duration-300 group-hover:text-white">
+    Contact Now
+  </span>
+</Link>
           </div>
 
           {/* Lower row */}
-          <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-10 items-end">
-            <div className="space-y-2">
-              <p className="font-mono text-[11px] tracking-widest text-muted-foreground uppercase">
-                Based In
+          <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-10 items-end ">
+            <div className="  flex flex-col justify-center mx-auto my-auto ">
+              <p className="font-[var(--font-display)] text-sm font-bold"> Based In Ludhiana,</p>
+              <p className="font-[var(--font-display)] text-sm tracking-widest text-muted-foreground uppercase text-center ">
+                Punjab
               </p>
-              <p className="font-display text-2xl">Ludhiana, Punjab</p>
+              
             </div>
 
-            <div className="flex justify-center">
-              <div className="w-40 h-52 md:w-56 md:h-72 overflow-hidden rounded-2xl">
+            <div className="flex justify-center ">
+              <div className=" md:h-125 overflow-hidden rounded-[8px]">
                 <img
                   src={FOOTER_PORTRAIT}
                   alt=""
-                  className="w-full h-full object-cover grayscale"
+                  className="w-full h-full object-cover "
                 />
               </div>
             </div>
 
-            <div className="space-y-2 md:text-right">
-              <p className="font-mono text-[11px] tracking-widest text-muted-foreground uppercase">
-                Role
-              </p>
-              <p className="font-display text-2xl">
+            <div className="space-y-2 md:text-right  mx-auto my-auto">
+            
+              <p className="font-[var(--font-display)] text-sm font-bold text-center">
                 Digital Designer
                 <br />
-                <span className="text-muted-foreground">+ Framer Developer</span>
+                <span className="text-muted-foreground text-sm font-[var(--font-display)] ">+ Framer Developer</span>
               </p>
             </div>
           </div>
@@ -72,24 +124,160 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="mt-16 flex flex-wrap items-center justify-between gap-6 border-t border-border/40 pt-8">
-            <p className="font-mono text-[11px] tracking-widest text-muted-foreground uppercase">
-              © {new Date().getFullYear()} floe. All rights reserved.
-            </p>
-            <nav className="flex gap-6">
-              {SOCIAL_LINKS.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-mono text-[11px] tracking-widest uppercase hover:text-foreground text-muted-foreground transition-colors"
-                >
-                  {s.label}
-                </a>
-              ))}
-            </nav>
-          </div>
+        
+
+<div className="flex items-center gap-10 justify-center mt-8">
+  
+  <div className="flex items-center gap-1 cursor-pointer group">
+    <p className="font-[var(--font-display)] uppercase text-lg font-bold">
+      instagram
+    </p>
+
+    <ArrowUpRight
+      className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+      strokeWidth={2.5}
+    />
+  </div>
+
+  <div className="flex items-center gap-1 cursor-pointer group">
+    <p className="font-[var(--font-display)] uppercase text-lg font-bold">
+      dribbble
+    </p>
+
+    <ArrowUpRight
+      className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+      strokeWidth={2.5}
+    />
+  </div>
+
+  <div className="flex items-center gap-1 cursor-pointer group">
+    <p className="font-[var(--font-display)] uppercase text-lg font-bold">
+      twitter
+    </p>
+
+    <ArrowUpRight
+      className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+      strokeWidth={2.5}
+    />
+  </div>
+
+</div>
+
+<div
+  ref={ref}
+  className="
+    flex-1
+    flex
+    flex-col
+    items-center
+    justify-center
+    pt-2
+    gap-0
+    mt-20
+    border-2 border-red-700
+  "
+>
+  <h1 className="sr-only text-center">Buzz Culture</h1>
+
+  {/* BUZZ */}
+  <div className="w-full flex justify-center overflow-hidden">
+
+    <motion.span
+      className="
+        font-display
+        text-foreground
+        leading-none
+        whitespace-nowrap
+        text-[24vw]
+        will-change-transform
+      "
+      style={{
+        y: buzzY,
+        opacity,
+        fontWeight: 600,
+        letterSpacing: "-0.03em",
+        lineHeight: "0.85",
+      }}
+    >
+      buzz
+    </motion.span>
+
+  </div>
+
+  {/* CULTURE */}
+  <div className="w-full flex justify-center overflow-hidden">
+
+    <motion.span
+      className="
+        font-display
+        text-foreground
+        leading-none
+        whitespace-nowrap
+        text-[24vw]
+        will-change-transform
+      "
+      style={{
+        y: cultureY,
+        opacity,
+        fontWeight: 600,
+        letterSpacing: "-0.03em",
+        lineHeight: "0.8",
+      }}
+    >
+      culture
+    </motion.span>
+
+  </div>
+</div>
+
+         <div className="flex flex-col md:flex-row justify-between mt-10">
+          <div><p className="font-[var(--font-display)] font-bold text-lg uppercase">&copy;2024 Mandro design</p></div>
+          <div>
+  <button
+    onClick={() => {
+      const hero = document.getElementById("hero");
+
+      hero?.scrollIntoView({
+        behavior: "smooth",
+      });
+    }}
+    className="
+      group
+      relative
+      cursor-pointer
+    "
+  >
+    <p
+      className="
+        font-[var(--font-display)]
+        font-bold
+        text-lg
+        uppercase
+      "
+    >
+      Back to top
+    </p>
+
+    {/* UNDERLINE */}
+    <span
+      className="
+        absolute
+        left-0
+        bottom-[-4px]
+        h-[2px]
+        w-full
+        origin-left
+        scale-x-0
+        bg-foreground
+        transition-transform
+        duration-500
+        ease-[cubic-bezier(0.22,1,0.36,1)]
+        group-hover:scale-x-100
+      "
+    />
+  </button>
+</div>
+         </div>
         </div>
       </div>
     </footer>

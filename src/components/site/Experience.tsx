@@ -2,18 +2,77 @@
 
 import {
   motion,
-  useScroll,
-  useTransform,
+  AnimatePresence,
 } from "framer-motion";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { EXPERIENCE } from "@/lib/site-data";
 
-export function Experience() {
-  return (
-    <section className="relative min-h-screen bg-black text-white overflow-hidden">
+const images = [
+  "https://framerusercontent.com/images/JwJTxroeEh0a7U32iDMSI6d6R8.jpg?scale-down-to=2048",
+  "https://framerusercontent.com/images/xcxQQ1waNtZJqJFNv1uOoAOs.jpg?scale-down-to=1024",
+  "https://framerusercontent.com/images/CkRGbZ3Tef83yc5ibFgim9s6w.jpg?scale-down-to=1024",
+  "https://framerusercontent.com/images/VX1rSkalWuRIsRIh7yoySMaSpWU.jpg?scale-down-to=1024",
+];
 
-      {/* GRID LINES */}
+export function Experience() {
+  const [current, setCurrent] = useState(0);
+
+  // STICKY LOGIC
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const [stickyState, setStickyState] = useState<
+    "absolute" | "fixed" | "bottom"
+  >("absolute");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+
+      const rect = sectionRef.current.getBoundingClientRect();
+
+      const sectionTop = rect.top;
+      const sectionBottom = rect.bottom;
+
+      // NORMAL SCROLL
+      if (sectionTop > -40) {
+        setStickyState("absolute");
+      }
+
+      // STICK
+      else if (sectionBottom > 300) {
+        setStickyState("fixed");
+      }
+
+      // STOP AT END
+      else {
+        setStickyState("bottom");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // MOBILE AUTO SLIDER
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen bg-black py-20 text-white"
+    >
+
+      {/* GRID */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-[22%] top-0 h-full w-px bg-white/10" />
         <div className="absolute left-1/2 top-0 h-full w-px bg-white/10" />
@@ -26,11 +85,61 @@ export function Experience() {
         <span>2013 - Present</span>
       </div>
 
-      {/* MAIN LAYOUT */}
-      <div className="flex flex-col md:flex-row  mt-24 justify-between ">
+      {/* MAIN */}
+      <div className="relative mt-24">
 
-        {/* LEFT TITLE */}
-        <div className="px-8 w-1/4">
+        {/* DESKTOP */}
+        <div className="hidden md:flex items-start">
+
+          {/* LEFT TITLE */}
+          <div className="w-[30%] relative">
+
+            <div
+              className={`
+                ${
+                  stickyState === "fixed"
+                    ? "fixed top-8 left-8"
+                    : stickyState === "bottom"
+                    ? "absolute bottom-0 left-8"
+                    : "absolute top-0 left-8"
+                }
+                z-20
+              `}
+            >
+              <h2
+                className="
+                  text-3xl
+                  leading-none
+                  font-black
+                  uppercase
+                  tracking-[-0.02em]
+                  font-[var(--font-display)]
+                "
+              >
+                Experience
+              </h2>
+            </div>
+
+          </div>
+
+          {/* RIGHT CONTENT */}
+          <div className="w-[70%] px-8 lg:px-20">
+            <div className="max-w-4xl ml-auto">
+
+              {EXPERIENCE.map((e) => (
+                <ExperienceItem
+                  key={e.company}
+                  e={e}
+                />
+              ))}
+
+            </div>
+          </div>
+
+        </div>
+
+        {/* MOBILE TITLE */}
+        <div className="mb-14 px-6 md:hidden">
           <h2
             className="
               text-3xl
@@ -38,31 +147,98 @@ export function Experience() {
               font-black
               uppercase
               tracking-[-0.02em]
-              sticky
-              top-24
-              font-display
+              font-[var(--font-display)]
             "
           >
             Experience
           </h2>
         </div>
 
-        {/* RIGHT CONTENT */}
-        <div className="px-8 lg:px-20 w-[70%]">
+        {/* MOBILE CONTENT */}
+        <div className="px-6 md:hidden">
 
-          <div className="max-w-4xl ml-auto">
+          {EXPERIENCE.map((e) => (
+            <ExperienceItem
+              key={e.company}
+              e={e}
+            />
+          ))}
 
-            {EXPERIENCE.map((e, i) => (
-              <ExperienceItem
-                key={e.company}
-                e={e}
-              />
-            ))}
+        </div>
 
-          </div>
+      </div>
+
+      {/* DESKTOP IMAGES */}
+      <div className="mt-28 hidden justify-center gap-[2%] md:flex">
+
+        {images.map((img, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: index * 0.12,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            viewport={{ once: true }}
+            className="relative w-[23%] overflow-hidden rounded-[8px]"
+          >
+
+            <img
+              src={img}
+              alt={`gallery-${index}`}
+              className="
+                h-[220px]
+                w-full
+                object-cover
+                transition-transform
+                duration-700
+                hover:scale-105
+              "
+            />
+
+            {/* LEFT FADE */}
+            {index === 0 && (
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
+            )}
+
+            {/* RIGHT FADE */}
+            {index === images.length - 1 && (
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-black via-black/40 to-transparent" />
+            )}
+
+          </motion.div>
+        ))}
+
+      </div>
+
+      {/* MOBILE SLIDER */}
+      <div className="relative mt-20 overflow-hidden rounded-[28px] md:hidden">
+
+        <div className="relative h-[260px] w-full">
+
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={images[current]}
+              src={images[current]}
+              alt="mobile-slider"
+              className="absolute inset-0 h-full w-full object-cover"
+              initial={{ opacity: 0, scale: 1.08, x: 40 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              exit={{ opacity: 0, scale: 0.96, x: -40 }}
+              transition={{
+                duration: 0.8,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            />
+          </AnimatePresence>
+
+          <div className="absolute inset-0 bg-black/10" />
 
         </div>
       </div>
+
     </section>
   );
 }
@@ -72,42 +248,29 @@ function ExperienceItem({
 }: {
   e: any;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-
-    // ONLY ANIMATE WHILE ENTERING
-    offset: ["start end", "start center"],
-  });
-
-  // INCOMING CARD MOVES UP
-  const y = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [120, 0]
-  );
-
-  // FADE IN
-  const opacity = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0.3, 1]
-  );
-
   return (
     <motion.div
-      ref={ref}
-      style={{
-        y,
-        opacity,
+      initial={{
+        opacity: 0,
+        y: 45,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: false,
+        amount: 0.15,
+      }}
+      transition={{
+        duration: 2,
+        ease: [0.22, 1, 0.36, 1],
       }}
       className="
         relative
-        py-10
         border-b
         border-white/10
-        will-change-transform
+        py-10
       "
     >
 
@@ -118,9 +281,9 @@ function ExperienceItem({
           right-0
           top-24
           text-sm
-          text-white/40
-          tracking-wide
           uppercase
+          tracking-wide
+          text-white/40
         "
       >
         {e.period}
@@ -135,7 +298,7 @@ function ExperienceItem({
             font-bold
             uppercase
             tracking-[-0.02em]
-            font-display
+            font-[var(--font-display)]
           "
         >
           {e.company}
@@ -145,12 +308,11 @@ function ExperienceItem({
           className="
             mt-3
             text-sm
-            uppercase
-            text-white/70
             font-semibold
+            uppercase
             tracking-[-0.02em]
-            font-display
-            
+            text-white/70
+            font-[var(--font-display)]
           "
         >
           {e.role}
@@ -159,11 +321,11 @@ function ExperienceItem({
         <p
           className="
             mt-3
+            max-w-xl
             text-xl
+            leading-[1.6]
             tracking-[-0.05em]
             text-white/45
-            max-w-xl
-            leading-[1.6]
           "
         >
           {e.description}
