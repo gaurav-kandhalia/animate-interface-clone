@@ -39,7 +39,7 @@ export function Nav() {
 
         <Link
           to="/contact"
-          className="inline-flex items-center justify-center rounded-full border-2 border-foreground px-5  py-2 font-display text-lg  tracking-normal font-bold uppercase hover:bg-foreground hover:text-background transition-colors duration-200"
+          className="inline-flex items-center justify-center rounded-full border-2 border-foreground px-1 md:px-5  py-2 font-display text-sm md:text-lg  tracking-normal font-bold uppercase hover:bg-foreground hover:text-background transition-colors duration-200"
         >
           Contact Now
         </Link>

@@ -52,7 +52,7 @@ const opacity = useSpring(opacityRaw, {
 });
   
   return (
-    <footer className="relative bg-background border-t border-border/40 overflow-hidden border-2 border-red-700">
+    <footer className="relative  border-t border-border/40 overflow-hidden ">
       <div className="">
          <SectionLabel number="08" category="//Award" meta="Recogination" />
       {/* <div className="bg-dotgrid"> */}
@@ -65,7 +65,15 @@ const opacity = useSpring(opacityRaw, {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20%" }}
               transition={{ duration: 0.8 }}
-              className="font-[var(--font-display)] text-9xl font-bold  leading-[0.77] uppercase tracking-[-0.4rem]"
+              className=" font-[var(--font-display)]
+  text-6xl
+  md:text-9xl
+  font-bold
+  leading-[0.77]
+  uppercase
+  tracking-[-0.08em]
+  md:tracking-[-0.4rem]
+  whitespace-nowrap"
             >
               Let&apos;s Work
               <br />
@@ -126,7 +134,7 @@ const opacity = useSpring(opacityRaw, {
 
         
 
-<div className="flex items-center gap-10 justify-center mt-8">
+<div className="flex flex-col md:flex-row items-center gap-10 justify-center mt-8">
   
   <div className="flex items-center gap-1 cursor-pointer group">
     <p className="font-[var(--font-display)] uppercase text-lg font-bold">
@@ -173,14 +181,17 @@ const opacity = useSpring(opacityRaw, {
     justify-center
     pt-2
     gap-0
-    mt-20
-    border-2 border-red-700
+    md:mt-20
+    mt-14
+    text-white
+   
+    
   "
 >
   <h1 className="sr-only text-center">Buzz Culture</h1>
 
   {/* BUZZ */}
-  <div className="w-full flex justify-center overflow-hidden">
+  <div className="w-full flex justify-center ">
 
     <motion.span
       className="
@@ -205,7 +216,7 @@ const opacity = useSpring(opacityRaw, {
   </div>
 
   {/* CULTURE */}
-  <div className="w-full flex justify-center overflow-hidden">
+  <div className="w-full flex justify-center ">
 
     <motion.span
       className="
@@ -231,7 +242,7 @@ const opacity = useSpring(opacityRaw, {
 </div>
 
          <div className="flex flex-col md:flex-row justify-between mt-10">
-          <div><p className="font-[var(--font-display)] font-bold text-lg uppercase">&copy;2024 Mandro design</p></div>
+          <div><p className="font-[var(--font-display)] font-bold text-lg uppercase text-center">&copy;2024 Mandro design</p></div>
           <div>
   <button
     onClick={() => {
@@ -245,6 +256,7 @@ const opacity = useSpring(opacityRaw, {
       group
       relative
       cursor-pointer
+     w-full
     "
   >
     <p
@@ -253,6 +265,7 @@ const opacity = useSpring(opacityRaw, {
         font-bold
         text-lg
         uppercase
+        
       "
     >
       Back to top

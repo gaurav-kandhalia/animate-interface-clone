@@ -41,14 +41,14 @@ export function About() {
   });
 
   return (
-    <section ref={ref} className="relative bg-background">
+    <section ref={ref} className="relative ">
 
       {/* Section label */}
       <div className="">
         <SectionLabel number="03" category="// Who Am I" meta="Since 2000" />
       </div>
 
-      <div className="min-h-[250vh]">
+      <div className="min-h-[100vh] md:min-h-[250vh] ">
         <div className="sticky top-0 h-screen overflow-hidden">
 
           {/* Headline — centered, shrinks as image approaches */}
@@ -72,7 +72,7 @@ export function About() {
             style={{ y: containerY }}
             className="absolute left-1/2 -translate-x-1/2 z-20 w-[80%] max-w-xl top-full"
           >
-            <div className="h-[130vh] rounded-[25px] overflow-hidden">
+            <div className="h-[65vh] md:h-[130vh] rounded-[25px] overflow-hidden">
               {/* Zoom wrapper: starts at 1.8×, zooms out to 1.0 as user scrolls */}
               <motion.div
                 style={{ scale: imageScale, transformOrigin: "center center" }}

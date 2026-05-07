@@ -6,12 +6,12 @@ import { SERVICES } from "@/lib/site-data";
 
 export function Services() {
   return (
-    <section className="bg-background">
+    <section className="">
       <SectionLabel number="04" category="// Services" meta="Fast Delivery" />
 
-      <div className="px-6 md:px-10 pt-16 pb-28">
+      <div className="px-6 md:px-10 pt-16 pb-28 ">
         {/* HEADER */}
-        <div className="flex items-end justify-between mb-16">
+        <div className="flex flex-col md:flex-row  md:items-end justify-between mb-16 ">
           <motion.h2
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -29,7 +29,7 @@ export function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="font-[family-name:var(--font-display)] text-foreground text-xl font-medium leading-relaxed max-w-[300px] text-left"
+            className="font-[family-name:var(--font-display)] text-foreground text-xl font-medium leading-relaxed max-w-[300px] md:text-left "
           >
             Discover our range of services
             <br />
@@ -40,7 +40,7 @@ export function Services() {
         </div>
 
         {/* SERVICES LIST */}
-        <ul className="border-t border-border/40">
+        <ul className="border-t border-border/40 ">
           {SERVICES.map((s, i) => (
             <ServiceRow
               key={s.title}
@@ -88,18 +88,18 @@ function ServiceRow({
   const [open, setOpen] = useState(false);
 
   return (
-    <li className="border-b border-border/30">
+    <li className="border-b border-border/30  ">
       <button
         onClick={() => setOpen((o) => !o)}
-        className="w-full grid grid-cols-[28%_1fr_auto] items-center py-6 md:py-8 group text-left"
+        className="w-full grid md:grid-cols-[28%_1fr_auto] items-center py-6 md:py-8 group text-left"
       >
         {/* SPACER — pushes content to the right */}
         <div />
 
         {/* DOTS + TEXT */}
-        <div className="flex items-center gap-8 md:gap-10">
+        <div className="flex items-center md:gap-10  w-full">
           {/* DOTS */}
-          <div className="flex gap-[6px] min-w-[80px]">
+          <div className="md:flex hidden gap-[6px] min-w-[80px] ">
             {[0, 1, 2, 3, 4].map((dot) => (
               <span
                 key={dot}
@@ -111,7 +111,7 @@ function ServiceRow({
           </div>
 
           {/* TITLE + SUBTITLE */}
-          <div>
+          <div className="">
             <h3 className="font-[var(--font-display)] text-xl md:text-2xl font-semibold tracking-[-0.01em] leading-snug text-foreground">
               {title}
             </h3>
@@ -125,7 +125,7 @@ function ServiceRow({
         <motion.span
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.3 }}
-          className="text-foreground opacity-60 group-hover:opacity-100 transition flex-shrink-0"
+          className=" hidden md:flex text-foreground opacity-60 group-hover:opacity-100 transition flex-shrink-0 "
         >
           <ChevronDown className="w-6 h-6 md:w-7 md:h-7" />
         </motion.span>
@@ -141,7 +141,7 @@ function ServiceRow({
             transition={{ duration: 0.38, ease: [0.4, 0, 0.2, 1] }}
             className="overflow-hidden"
           >
-            <div className="pl-[28%] pb-12 pt-3 flex gap-8 md:gap-12">
+            <div className=" pb-12 pt-3 flex gap-8 md:gap-12 ">
               {/* IMAGE */}
               <div className="w-[340px] md:w-[420px] h-[195px] md:h-[215px] rounded-[20px] overflow-hidden flex-shrink-0 bg-foreground/5">
                 <img
@@ -152,7 +152,7 @@ function ServiceRow({
               </div>
 
               {/* FEATURES */}
-              <ul className="flex flex-col justify-center gap-[14px]">
+              <ul className=" gap-[14px]">
                 {features.map((f) => (
                   <li
                     key={f}

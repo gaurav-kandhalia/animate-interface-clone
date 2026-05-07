@@ -28,7 +28,7 @@ function Counter({ to, suffix }: { to: number; suffix: string }) {
 
 export function Stats() {
   return (
-    <section className="px-6 md:px-10 py-28 bg-background">
+    <section className="px-6 md:px-10 py-28 ">
       <SectionLabel number="06" category="// Stats" meta="Fun Facts" />
 
       <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-7xl mx-auto">

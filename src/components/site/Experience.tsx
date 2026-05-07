@@ -69,7 +69,7 @@ export function Experience() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen bg-black py-20 text-white"
+      className="relative min-h-screen  py-20 text-white"
     >
 
       {/* GRID */}

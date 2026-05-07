@@ -52,14 +52,14 @@ export function Voice() {
   const words = STATEMENT.split(" ");
 
   return (
-    <section ref={ref} className=" bg-background ">
+    <section ref={ref} className=" mt-30 ">
       <SectionLabel number="05" category="// Voice of Grey" meta="Since 2000" />
 
       {/* Scroll canvas — 360vh gives ~260vh of sticky scroll time */}
    <div className="relative">
 
   {/* TEXT LAYER */}
-  <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+  <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden ">
     
     <motion.div className="relative z-0 px-6 md:px-10 pointer-events-none w-[70%]">
       
@@ -84,7 +84,7 @@ export function Voice() {
         ))}
       </p>
 
-      <div className="mt-10 text-center">
+      <div className="mt-10 text-center ">
         <span
           style={{ fontFamily: "'Dancing Script', cursive" }}
           className="text-2xl  text-foreground font-bold"
@@ -101,48 +101,48 @@ export function Voice() {
 
     <div className=" flex justify-between w-[80%] mx-auto">
       
-      <div className="w-1/4 flex items-end">
+      <div className="w-[30%] md:w-1/4 flex items-end ">
         <img
           src={VOICE_GALLERY[1]}
-          className="w-full h-[30vh] object-cover rounded-[4px]"
+          className="w-full md:h-[30vh] object-cover rounded-[4px]"
         />
       </div>
 
-      <div className="w-1/4">
+      <div className="w-[30%] md:w-1/4">
         <img
           src={VOICE_GALLERY[2]}
-          className="w-full h-[50vh] object-cover rounded-[4px]"
+          className="w-full md:h-[50vh] object-cover rounded-[4px]"
         />
       </div>
 
     </div>
 
-    <div className="w-[20%] mx-auto mt-44">
+    <div className="w-[30%] md:w-[20%] mx-auto mt-44">
       <img
         src={VOICE_GALLERY[3]}
-        className="w-full h-[30vh] object-cover rounded-[4px]"
+        className="w-full md:h-[30vh] object-cover rounded-[4px]"
       />
     </div>
 
-    <div className="flex justify-between w-[80%] mx-auto mt-44">
+    <div className="flex justify-between w-[80%] mx-auto mt-44 ">
       
-      <div className="w-1/4">
+      <div className="w-[30%] md:w-1/4">
         <img
           src={VOICE_GALLERY[4]}
-          className="w-full h-[40vh] object-cover rounded-[4px]"
+          className="w-full h-[15vh] md:h-[40vh] object-cover rounded-[4px]"
         />
       </div>
 
-      <div className="w-[20%] flex items-end">
+      <div className="w-[30%] md:w-[20%] flex items-end">
         <img
           src={VOICE_GALLERY[5]}
-          className="w-full h-[25vh] object-cover rounded-[4px]"
+          className="w-full h-[15vh] md:h-[25vh] object-cover rounded-[4px]"
         />
       </div>
 
     </div>
 
-    <div className="h-screen w-[32%] mx-auto py-4 mt-44">
+    <div className="h-[40vh] md:h-screen md:w-[32%] mx-auto py-4 mt-44 w-[40%] rounded-[8px]">
       <img
         src={VOICE_GALLERY[6]}
         className="w-full h-full object-cover rounded-[4px]"

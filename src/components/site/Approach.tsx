@@ -64,7 +64,7 @@ export function Approach() {
 
 
       <div className="relative mt-10">
-        <div className="flex justify-center gap-28 text-md font-medium tracking-widest relative z-10">
+        <div className="flex justify-center gap-28 text-md font-medium tracking-widest relative z-10 ">
 
           <CircleNumber num="01" />
           <CircleNumber num="02" />
@@ -138,13 +138,13 @@ const CircleNumber = ({ num }) => (
   <div className="relative w-10 h-10 flex items-center justify-center">
 
     {/* glow (optional, adapts with text color) */}
-    <div className="absolute inset-0 bg-foreground/10 blur-md rounded-full"></div>
+    <div className="absolute inset-0 bg-foreground/10 blur-md rounded-full "></div>
 
     {/* circle */}
     <div className="relative w-10 h-10 rounded-full
-      bg-white/10 text-foreground
+       text-foreground
       border border-foreground/30
-      text-xs font-display font-bold flex items-center justify-center shadow-lg"
+      text-xs font-display font-bold flex items-center justify-center shadow-lg bg-[var(--secondary-foreground)]"
     >
       {num}
     </div>
