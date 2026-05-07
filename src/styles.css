@@ -72,6 +72,7 @@
   --color-brand-blue: var(--brand-blue);
   --color-surface: var(--surface);
   --color-grid-line: var(--grid-line);
+  --color-mehron: var(--mehron);
 }
 
 :root {
@@ -111,6 +112,8 @@
 
   --brand-green: #4ade80;
   --brand-blue: #60a5fa;
+
+  --mehron: linear-gradient(135deg, hsl(350 65% 22%), hsl(350 70% 35%));
 
   /* 🔥 GRID COLOR (IMPORTANT) */
 --grid-line: rgba(254, 239, 206, 0.16);

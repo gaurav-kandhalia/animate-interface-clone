@@ -5,7 +5,7 @@ import {
   AnimatePresence,
 } from "framer-motion";
 
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { EXPERIENCE } from "@/lib/site-data";
 
 const images = [
@@ -18,45 +18,6 @@ const images = [
 export function Experience() {
   const [current, setCurrent] = useState(0);
 
-  // STICKY LOGIC
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  const [stickyState, setStickyState] = useState<
-    "absolute" | "fixed" | "bottom"
-  >("absolute");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-
-      const rect = sectionRef.current.getBoundingClientRect();
-
-      const sectionTop = rect.top;
-      const sectionBottom = rect.bottom;
-
-      // NORMAL SCROLL
-      if (sectionTop > -40) {
-        setStickyState("absolute");
-      }
-
-      // STICK
-      else if (sectionBottom > 300) {
-        setStickyState("fixed");
-      }
-
-      // STOP AT END
-      else {
-        setStickyState("bottom");
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   // MOBILE AUTO SLIDER
   useEffect(() => {
     const interval = setInterval(() => {
@@ -67,10 +28,7 @@ export function Experience() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative min-h-screen  py-20 text-white"
-    >
+    <section className="relative min-h-screen py-20 text-white">
 
       {/* GRID */}
       <div className="pointer-events-none absolute inset-0">
@@ -91,48 +49,19 @@ export function Experience() {
         {/* DESKTOP */}
         <div className="hidden md:flex items-start">
 
-          {/* LEFT TITLE */}
-          <div className="w-[30%] relative">
-
-            <div
-              className={`
-                ${
-                  stickyState === "fixed"
-                    ? "fixed top-8 left-8"
-                    : stickyState === "bottom"
-                    ? "absolute bottom-0 left-8"
-                    : "absolute top-0 left-8"
-                }
-                z-20
-              `}
-            >
-              <h2
-                className="
-                  text-3xl
-                  leading-none
-                  font-black
-                  uppercase
-                  tracking-[-0.02em]
-                  font-[var(--font-display)]
-                "
-              >
-                Experience
-              </h2>
-            </div>
-
+          {/* LEFT TITLE — sticky flex child sticks within the height of the right column */}
+          <div className="w-[30%] sticky top-12 self-start pl-8">
+            <h2 className="text-3xl leading-none font-black uppercase tracking-[-0.02em] font-[var(--font-display)]">
+              Experience
+            </h2>
           </div>
 
-          {/* RIGHT CONTENT */}
+          {/* RIGHT CONTENT — scrolls naturally, defines the sticky bounds */}
           <div className="w-[70%] px-8 lg:px-20">
             <div className="max-w-4xl ml-auto">
-
               {EXPERIENCE.map((e) => (
-                <ExperienceItem
-                  key={e.company}
-                  e={e}
-                />
+                <ExperienceItem key={e.company} e={e} />
               ))}
-
             </div>
           </div>
 
