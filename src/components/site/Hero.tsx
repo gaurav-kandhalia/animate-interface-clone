@@ -4,7 +4,7 @@ import { MapPin, Globe, BadgeCheck } from "lucide-react";
 
 export function Hero() {
   return (
-<section className="relative min-h-screen flex flex-col justify-center overflow-hidden" id="hero">
+<section className="relative min-h-[70vh] md:min-h-screen flex flex-col justify-center overflow-hidden" id="hero">
 
   <div className="flex-1 flex flex-col items-center justify-center pt-2 gap-0 ">
     <h1 className="sr-only">Buzz Culture</h1>

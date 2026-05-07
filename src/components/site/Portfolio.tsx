@@ -11,7 +11,7 @@ export function Portfolio() {
     <section className="py-16">
       <SectionLabel number="02" category="// Portfolio" meta="2020 — 2025" />
       <div className="px-6 pt-18">
-        <div className="flex items-end justify-between gap-8">
+        <div className="flex md:items-end justify-between gap-8 flex-col md:flex-row ">
           <div className="leading-none">
             <div className="font-display text-foreground uppercase font-semibold tracking-tight" style={{ fontSize: "clamp(4rem, 9vw, 14rem)", lineHeight: 0.85, letterSpacing: "-0.02em" }}>
               Latest

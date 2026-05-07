@@ -59,7 +59,7 @@ export function Voice() {
    <div className="relative">
 
   {/* TEXT LAYER */}
-  <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden ">
+  <div className="sticky top-0 min-h-[70vh] md:h-screen flex items-center justify-center overflow-hidden ">
     
     <motion.div className="relative z-0 px-6 md:px-10 pointer-events-none w-[70%]">
       

@@ -40,7 +40,7 @@ export function Approach() {
       </div>
       <SectionLabel number="01" category="// Approach" meta="Three Phases" />
 
-      <div className="!mt-16 w-full overflow-hidden">
+      <div className="!mt-16 md:w-full overflow-hidden  w-[80%] mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -54,7 +54,7 @@ export function Approach() {
             fontSize: "clamp(2rem, 7vw, 14rem)",
           }}
         >
-          WE ARE BUZZ CULTURE
+          WE ARE BUZZ <br className="md:hidden"/> CULTURE
         </motion.h2>
         <p className="mt-8 max-w-xl mx-auto text-center text-foreground/60 text-xl">
           I employed responsive design skills to maintain <br />consistency across all devices.
@@ -78,7 +78,7 @@ export function Approach() {
 
       <div className="relative mt-16 max-w-7xl mx-auto">
 
-        <div className="relative z-0 grid grid-cols-1 md:grid-cols-3 bg-background text-center">
+        <div className="relative z-0 grid grid-cols-1 md:grid-cols-3 bg-background text-center ">
 
           {PHASES.map((phase, idx) => (
             <motion.div
@@ -112,9 +112,14 @@ export function Approach() {
 
               {/* text */}
               <div>
-                <h3 className="font-display text-3xl font-semibold uppercase tracking-tight text-foreground text-wrap">
-                  {phase.title}
-                </h3>
+              
+                <h3 className="font-[var(--font-display)] text-3xl">
+  {phase.title.split(" and ")[0]} and
+  <br className="block md:hidden" />
+  <span className="md:ml-1">
+    {phase.title.split(" and ")[1]}
+  </span>
+</h3>
                 <p className="mt-3 text-xl font-medium text-white/50 max-w-xs mx-auto text-wrap">
                   {phase.blurb}
                 </p>
