@@ -82,13 +82,13 @@ const opacity = useSpring(opacityRaw, {
 
 <Link
   to="/contact"
-  className="group relative mt-10 inline-flex overflow-hidden rounded-full border border-foreground/50 px-7 py-2 font-[var(--font-display)] text-sn tracking-[-0.02em] uppercase bg-white font-bold"
+  className="group relative mt-10 inline-flex overflow-hidden rounded-full border border-[var(--mehron-mid)] px-7 py-2 font-[var(--font-display)] text-sn tracking-[-0.02em] uppercase bg-[var(--mehron-solid)] font-bold"
 >
   {/* Curtain Layer */}
-  <span className="absolute inset-0 bg-black translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0" />
+  <span className="absolute inset-0 bg-white translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0" />
 
   {/* Text */}
-  <span className="relative z-10 flex items-center gap-3 text-black transition-colors duration-300 group-hover:text-white">
+  <span className="relative z-10 flex items-center gap-3 text-white transition-colors duration-300 group-hover:text-black">
     Contact Now
   </span>
 </Link>

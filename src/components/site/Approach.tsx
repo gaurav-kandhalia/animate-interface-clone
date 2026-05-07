@@ -94,7 +94,7 @@ export function Approach() {
                 {[0, 1, 2].map(dotIdx => (
                   <span
                     key={dotIdx}
-                    className={`w-3 h-3 rounded-full ${dotIdx < idx + 1 ? 'bg-white' : 'bg-white/20'}`}
+                    className={`w-3 h-3 rounded-full ${dotIdx < idx + 1 ? 'bg-[var(--mehron-mid)]' : 'bg-white/20'}`}
                   />
                 ))}
               </div>
@@ -143,13 +143,13 @@ const CircleNumber = ({ num }) => (
   <div className="relative w-10 h-10 flex items-center justify-center">
 
     {/* glow (optional, adapts with text color) */}
-    <div className="absolute inset-0 bg-foreground/10 blur-md rounded-full "></div>
+    <div className="absolute inset-0 bg-[var(--mehron-solid)]/30 blur-md rounded-full"></div>
 
     {/* circle */}
     <div className="relative w-10 h-10 rounded-full
-       text-foreground
-      border border-foreground/30
-      text-xs font-display font-bold flex items-center justify-center shadow-lg bg-[var(--secondary-foreground)]"
+       text-[var(--mehron-mid)]
+      border border-[var(--mehron-mid)]/60
+      text-xs font-display font-bold flex items-center justify-center shadow-lg bg-[var(--mehron-deep)]"
     >
       {num}
     </div>

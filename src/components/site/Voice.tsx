@@ -61,15 +61,15 @@ export function Voice() {
   {/* TEXT LAYER */}
   <div className="sticky top-0 min-h-[70vh] md:h-screen flex items-center justify-center overflow-hidden ">
     
-    <motion.div className="relative z-0 px-6 md:px-10 pointer-events-none w-[70%]">
-      
+    <motion.div className="relative z-0 px-3 md:px-10 pointer-events-none w-[96%] md:w-[70%]">
+
       <p
         className="
           font-[family-name:var(--font-display)]
-          font-bold uppercase
-          text-[clamp(1.2rem,2.8vw,3rem)]
-          tracking-[-0.03em]
-          leading-[1.05]
+          font-extrabold uppercase
+          text-[clamp(1.6rem,7.5vw,3rem)]
+          tracking-[-0.01em]
+          leading-[1.0]
           text-center
           text-foreground
         "
@@ -77,21 +77,14 @@ export function Voice() {
         {words.map((w, i) => (
           <span
             key={i}
-            className="inline-block mr-[0.22em]"
+            className="inline-block mr-[0.18em]"
           >
             {w}
           </span>
         ))}
       </p>
 
-      <div className="mt-10 text-center ">
-        <span
-          style={{ fontFamily: "'Dancing Script', cursive" }}
-          className="text-2xl  text-foreground font-bold"
-        >
-          Santwayne
-        </span>
-      </div>
+    
 
     </motion.div>
   </div>

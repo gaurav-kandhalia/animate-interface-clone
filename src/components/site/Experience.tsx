@@ -111,7 +111,7 @@ export function Experience() {
               ease: [0.22, 1, 0.36, 1],
             }}
             viewport={{ once: true }}
-            className="relative w-[23%] overflow-hidden rounded-[8px]"
+            className="relative w-[23%] overflow-hidden rounded-[8px] shadow-[0_30px_80px_-20px_hsl(350_70%_30%/0.55)]"
           >
 
             <img
@@ -127,14 +127,17 @@ export function Experience() {
               "
             />
 
-            {/* LEFT FADE */}
+            {/* mehron tint over every image */}
+            <div className="pointer-events-none absolute inset-0 bg-[hsl(350_65%_15%/0.18)]" />
+
+            {/* LEFT FADE — mehron tinted */}
             {index === 0 && (
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[hsl(350_65%_8%)] via-[hsl(350_65%_10%/0.4)] to-transparent" />
             )}
 
-            {/* RIGHT FADE */}
+            {/* RIGHT FADE — mehron tinted */}
             {index === images.length - 1 && (
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-black via-black/40 to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-[hsl(350_65%_8%)] via-[hsl(350_65%_10%/0.4)] to-transparent" />
             )}
 
           </motion.div>
@@ -163,7 +166,7 @@ export function Experience() {
             />
           </AnimatePresence>
 
-          <div className="absolute inset-0 bg-black/10" />
+          <div className="absolute inset-0 bg-[hsl(350_65%_15%/0.25)]" />
 
         </div>
       </div>
@@ -240,7 +243,7 @@ function ExperienceItem({
             font-semibold
             uppercase
             tracking-[-0.02em]
-            text-white/70
+            text-[var(--mehron-mid)]
             font-[var(--font-display)]
           "
         >

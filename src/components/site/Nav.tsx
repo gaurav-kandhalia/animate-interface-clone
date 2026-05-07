@@ -39,15 +39,15 @@ export function Nav() {
 
         <Link
           to="/contact"
-          className="hidden  md:inline-flex items-center justify-center rounded-full border-2 border-foreground px-1 md:px-5  py-2 font-display text-sm md:text-lg  tracking-normal font-bold uppercase hover:bg-foreground hover:text-background transition-colors duration-200"
+          className="hidden md:inline-flex items-center justify-center rounded-full border-2 border-[var(--mehron-mid)] text-[var(--mehron-mid)] px-1 md:px-5 py-2 font-display text-sm md:text-lg tracking-normal font-bold uppercase hover:bg-[var(--mehron-solid)] hover:text-white transition-colors duration-200"
         >
           Contact Now
         </Link>
         <Link
           to="/contact"
-          className="md:hidden inline-flex items-center justify-center rounded-full border-2 border-foreground px-5  py-2 font-display text-sm md:text-lg  tracking-normal font-bold uppercase hover:bg-foreground hover:text-background transition-colors duration-200"
+          className="md:hidden inline-flex items-center justify-center rounded-full border-2 border-[var(--mehron-mid)] text-[var(--mehron-mid)] px-5 py-2 font-display text-sm md:text-lg tracking-normal font-bold uppercase hover:bg-[var(--mehron-solid)] hover:text-white transition-colors duration-200"
         >
-          Contact 
+          Contact
         </Link>
       </div>
     </motion.header>

@@ -4,6 +4,7 @@ import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Cursor } from "@/components/site/Cursor";
 import GridLines from "@/components/background/GridLines";
+import { SmoothScroll } from "@/components/site/SmoothScroll";
 
 function NotFoundComponent() {
   return (
@@ -34,39 +35,41 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <div className="relative min-h-screen overflow-x-clip bg-background text-foreground">
-      <div className="absolute inset-0 z-[1] pointer-events-none" />
+    <SmoothScroll>
+      <div className="relative min-h-screen overflow-x-clip bg-background text-foreground">
+        <div className="absolute inset-0 z-[1] pointer-events-none" />
 
-      <div
-        className="absolute inset-0 z-[1] pointer-events-none"
-        style={{
-          backgroundImage:
-            "url('https://framerusercontent.com/images/ldf53R2pKtKErtQpdz1GxxWt2I.svg')",
-          backgroundRepeat: "repeat",
-          backgroundSize: "13px auto",
-          opacity: 0.06,
-        }}
-      />
+        <div
+          className="absolute inset-0 z-[1] pointer-events-none"
+          style={{
+            backgroundImage:
+              "url('https://framerusercontent.com/images/ldf53R2pKtKErtQpdz1GxxWt2I.svg')",
+            backgroundRepeat: "repeat",
+            backgroundSize: "13px auto",
+            opacity: 0.06,
+          }}
+        />
 
-      <GridLines />
+        <GridLines />
 
-      <div className="relative z-10">
-        <Cursor />
-        <Nav />
+        <div className="relative z-10">
+          <Cursor />
+          <Nav />
 
-        <AnimatePresence mode="wait">
-          <motion.main
-            key="main"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-          >
-            <Outlet />
-            <Footer />
-          </motion.main>
-        </AnimatePresence>
+          <AnimatePresence mode="wait">
+            <motion.main
+              key="main"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+              <Outlet />
+              <Footer />
+            </motion.main>
+          </AnimatePresence>
+        </div>
       </div>
-    </div>
+    </SmoothScroll>
   );
 }

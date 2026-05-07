@@ -85,6 +85,10 @@
 
   --surface: #5a0223;
 
+  --mehron-deep: hsl(350 65% 8%);
+  --mehron-solid: hsl(350 65% 22%);
+  --mehron-mid: hsl(350 70% 35%);
+
   --card: #161616;
   --card-foreground: #FEEFCE;
 
@@ -219,4 +223,38 @@ body {
   .grid-horizontal {
     gap: 420px;
   }
+}
+
+/* Mehron contrast utilities — image glows & tinted fades (ref: buzzculture) */
+.shadow-mehron {
+  box-shadow: 0 30px 80px -20px hsl(350 70% 30% / 0.45);
+}
+
+.shadow-mehron-sm {
+  box-shadow: 0 16px 48px -12px hsl(350 65% 25% / 0.38);
+}
+
+.glow-mehron {
+  box-shadow:
+    0 0 60px -10px hsl(350 65% 25% / 0.5),
+    0 0 120px -30px hsl(350 70% 35% / 0.25);
+}
+
+.ring-mehron {
+  box-shadow: 0 0 0 1.5px hsl(350 65% 35% / 0.45);
+}
+
+.bg-mehron-radial {
+  background: radial-gradient(ellipse at center, hsl(350 65% 22% / 0.35) 0%, transparent 70%);
+}
+
+.from-mehron-deep {
+  --tw-gradient-from: hsl(350 65% 8%) var(--tw-gradient-from-position);
+  --tw-gradient-to: transparent var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.via-mehron-fade {
+  --tw-gradient-via: hsl(350 65% 10% / 0.4) var(--tw-gradient-via-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to);
 }
