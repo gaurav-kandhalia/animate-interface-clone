@@ -241,7 +241,7 @@ const opacity = useSpring(opacityRaw, {
   </div>
 </div>
 
-         <div className="flex flex-col md:flex-row justify-between mt-10">
+         <div className="flex flex-col md:flex-row justify-between md:mt-10 mt-16 ">
           <div><p className="font-[var(--font-display)] font-bold text-lg uppercase text-center">&copy;2024 Mandro design</p></div>
           <div>
   <button

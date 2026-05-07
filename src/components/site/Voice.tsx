@@ -142,7 +142,7 @@ export function Voice() {
 
     </div>
 
-    <div className="h-[40vh] md:h-screen md:w-[32%] mx-auto py-4 mt-44 w-[40%] rounded-[8px]">
+    <div className="h-[40vh] md:h-screen md:w-[32%] mx-auto py-4 mt-44 w-[50%] rounded-[12px]">
       <img
         src={VOICE_GALLERY[6]}
         className="w-full h-full object-cover rounded-[4px]"
