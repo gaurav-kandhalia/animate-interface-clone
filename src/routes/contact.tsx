@@ -6,21 +6,6 @@ import { Toaster } from "@/components/ui/sonner";
 import { SectionLabel } from "@/components/site/SectionLabel";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — floe" },
-      {
-        name: "description",
-        content:
-          "Let's work together. Reach out to floe — based in Ludhiana, Punjab, available worldwide.",
-      },
-      { property: "og:title", content: "Contact — floe" },
-      {
-        property: "og:description",
-        content: "Let's work together. Reach out to floe.",
-      },
-    ],
-  }),
   component: ContactPage,
 });
 
@@ -38,8 +23,7 @@ function ContactPage() {
   };
 
   return (
-    <section className="min-h-screen pt-32 pb-32 px-6 md:px-10  ">
-    {/* <section className="min-h-screen pt-32 pb-32 px-6 md:px-10 bg-background bg-dotgrid"> */}
+    <section className="min-h-screen pt-32 pb-32 px-6 md:px-10">
       <Toaster theme="dark" />
       <div className="max-w-7xl mx-auto">
         <SectionLabel number="—" category="// Contact" meta="Available Worldwide" />
@@ -52,15 +36,12 @@ function ContactPage() {
         >
           Ring a bell!
           <br />
-          <span className="">Reach out and let's create something amazing together. Let's 
-achieve greatness.</span>
+          <span>
+            Reach out and let&apos;s create something amazing together. Let&apos;s achieve greatness.
+          </span>
         </motion.h1>
 
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-12 gap-12 ">
-         
-      
-     
-        </div>
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-12 gap-12" />
       </div>
     </section>
   );

@@ -10,20 +10,6 @@ export const Route = createFileRoute("/work/$slug")({
     if (!project) throw notFound();
     return { project };
   },
-  head: ({ loaderData }) => {
-    const p = loaderData?.project;
-    if (!p) return { meta: [{ title: "Work — floe" }] };
-    return {
-      meta: [
-        { title: `${p.title} — floe` },
-        { name: "description", content: p.intro },
-        { property: "og:title", content: `${p.title} — floe` },
-        { property: "og:description", content: p.intro },
-        { property: "og:image", content: p.cover },
-        { name: "twitter:image", content: p.cover },
-      ],
-    };
-  },
   notFoundComponent: () => (
     <div className="min-h-screen flex items-center justify-center px-6">
       <div className="text-center">

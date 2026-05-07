@@ -9,16 +9,6 @@ import { Stats } from "@/components/site/Stats";
 import { Experience } from "@/components/site/Experience";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "floe — Digital Designer & Framer Developer" },
-      {
-        name: "description",
-        content:
-          "floe is a media company and Framer developer based in Ludhiana, Punjab — crafting minimalist, expressive digital experiences worldwide.",
-      },
-    ],
-  }),
   component: Index,
 });
 

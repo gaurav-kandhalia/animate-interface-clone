@@ -1,12 +1,9 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { Outlet, Link, createRootRoute } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Cursor } from "@/components/site/Cursor";
 import GridLines from "@/components/background/GridLines";
-import BackgroundTexture from "@/components/background/BackGroundTexture";
-
-import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
   return (
@@ -31,111 +28,45 @@ function NotFoundComponent() {
 }
 
 export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "floe — Digital Designer & Framer Developer" },
-      {
-        name: "description",
-        content:
-          "floe is a media company and Framer developer based in Ludhiana, Punjab — crafting minimalist, expressive digital experiences worldwide.",
-      },
-      { name: "author", content: "floe" },
-      { property: "og:title", content: "floe — Digital Designer & Framer Developer" },
-      {
-        property: "og:description",
-        content:
-          "Minimalist, expressive digital experiences. Based in Ludhiana, available worldwide.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "floe — Digital Designer & Framer Developer" },
-      { name: "description", content: "A React application cloning a Framer website, featuring interactive elements and animations." },
-      { property: "og:description", content: "A React application cloning a Framer website, featuring interactive elements and animations." },
-      { name: "twitter:description", content: "A React application cloning a Framer website, featuring interactive elements and animations." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e31f7302-5946-416b-923c-1a764cbd5376/id-preview-5eb0e88e--0f85ea20-272f-4ab2-9a1c-244133d21ded.lovable.app-1777620803991.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e31f7302-5946-416b-923c-1a764cbd5376/id-preview-5eb0e88e--0f85ea20-272f-4ab2-9a1c-244133d21ded.lovable.app-1777620803991.png" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      {
-        rel: "preconnect",
-        href: "https://fonts.googleapis.com",
-      },
-      {
-        rel: "preconnect",
-        href: "https://fonts.gstatic.com",
-        crossOrigin: "anonymous",
-      },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap",
-      },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
 });
 
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en" className="dark">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
-
 function RootComponent() {
   return (
-<>
-  <div className="relative min-h-screen overflow-x-clip bg-background text-foreground">
+    <div className="relative min-h-screen overflow-x-clip bg-background text-foreground">
+      <div className="absolute inset-0 z-[1] pointer-events-none" />
 
-    {/* 🔥 BASE BACKGROUND */}
-    <div className="absolute inset-0 z-[1] pointer-events-none " />
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none"
+        style={{
+          backgroundImage:
+            "url('https://framerusercontent.com/images/ldf53R2pKtKErtQpdz1GxxWt2I.svg')",
+          backgroundRepeat: "repeat",
+          backgroundSize: "13px auto",
+          opacity: 0.06,
+        }}
+      />
 
-    {/* 🔥 TEXTURE (UPDATED FOR THEME) */}
-<div
-  className="absolute inset-0 z-[1] pointer-events-none"
-  style={{
-    backgroundImage:
-      "url('https://framerusercontent.com/images/ldf53R2pKtKErtQpdz1GxxWt2I.svg')",
-    backgroundRepeat: "repeat",
-    backgroundSize: "13px auto",
-    opacity: 0.06,
-  }}
-/>
+      <GridLines />
 
-    {/* 🔥 GRID (MIDDLE LAYER) */}
-    <GridLines />
+      <div className="relative z-10">
+        <Cursor />
+        <Nav />
 
-    {/* 🔥 CONTENT (TOP LAYER) */}
-    <div className="relative z-10">
-      <Cursor />
-      <Nav />
-
-      <AnimatePresence mode="wait">
-        <motion.main
-          key="main"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-        >
-          <Outlet />
-          <Footer />
-        </motion.main>
-      </AnimatePresence>
+        <AnimatePresence mode="wait">
+          <motion.main
+            key="main"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            <Outlet />
+            <Footer />
+          </motion.main>
+        </AnimatePresence>
+      </div>
     </div>
-
-  </div>
-</>
   );
 }
