@@ -56,13 +56,13 @@ export function About() {
             style={{ scale: headlineScale }}
             className="absolute inset-0 flex flex-col items-center justify-center z-10 select-none pointer-events-none"
           >
-            <p className="font-[var(--font-display)] font-bold uppercase text-6xl md:text-7xl lg:text-9xl tracking-[-0.05em] leading-[0.9]">
+            <p className="font-[var(--font-display)] font-bold uppercase text-5xl md:text-7xl lg:text-9xl tracking-[-0.05em] leading-[0.9]">
               MORE ABOUT
             </p>
-            <h2 className="font-[var(--font-display)] font-bold uppercase text-6xl md:text-8xl lg:text-9xl tracking-[-0.05em] leading-[0.85]">
+            <h2 className="font-[var(--font-display)] font-bold uppercase text-5xl md:text-8xl lg:text-9xl tracking-[-0.05em] leading-[0.85]">
               BUZZ
             </h2>
-            <h2 className="font-[var(--font-display)] font-bold uppercase text-6xl md:text-8xl lg:text-9xl tracking-[-0.05em] leading-[0.85]">
+            <h2 className="font-[var(--font-display)] font-bold uppercase text-5xl md:text-8xl lg:text-9xl tracking-[-0.05em] leading-[0.85]">
               CULTURE
             </h2>
           </motion.div>
