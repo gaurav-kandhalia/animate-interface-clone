@@ -112,10 +112,10 @@ export function Approach() {
 
               {/* text */}
               <div>
-                <h3 className="font-display text-3xl font-semibold uppercase tracking-tight text-foreground">
+                <h3 className="font-display text-3xl font-semibold uppercase tracking-tight text-foreground text-wrap">
                   {phase.title}
                 </h3>
-                <p className="mt-3 text-xl font-medium text-white/50 max-w-xs mx-auto">
+                <p className="mt-3 text-xl font-medium text-white/50 max-w-xs mx-auto text-wrap">
                   {phase.blurb}
                 </p>
               </div>

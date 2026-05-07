@@ -24,7 +24,7 @@ export function Nav() {
     >
       <div className="flex items-center justify-between">
         <div className="font-display text-lg tracking-normal font-medium text-foreground/80 uppercase">
-          <span className="text-foreground/60">LOCAL/</span>
+          <span className="text-foreground/60 hidden md:block">LOCAL/</span>
           <span className="tabular-nums text-foreground">{time}</span>
         </div>
 
@@ -39,9 +39,15 @@ export function Nav() {
 
         <Link
           to="/contact"
-          className="inline-flex items-center justify-center rounded-full border-2 border-foreground px-1 md:px-5  py-2 font-display text-sm md:text-lg  tracking-normal font-bold uppercase hover:bg-foreground hover:text-background transition-colors duration-200"
+          className="hidden  md:inline-flex items-center justify-center rounded-full border-2 border-foreground px-1 md:px-5  py-2 font-display text-sm md:text-lg  tracking-normal font-bold uppercase hover:bg-foreground hover:text-background transition-colors duration-200"
         >
           Contact Now
+        </Link>
+        <Link
+          to="/contact"
+          className="md:hidden inline-flex items-center justify-center rounded-full border-2 border-foreground px-5  py-2 font-display text-sm md:text-lg  tracking-normal font-bold uppercase hover:bg-foreground hover:text-background transition-colors duration-200"
+        >
+          Contact 
         </Link>
       </div>
     </motion.header>
