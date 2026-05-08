@@ -1,4 +1,4 @@
-// Centralized content for the floe clone.
+// Centralized content for the buzz culture clone.
 // Image URLs reference the original Framer-hosted assets (user-owned site).
 
 export const APPROACH_IMAGES = {
@@ -37,6 +37,8 @@ export type Project = {
   services: string[];
   intro: string;
   gallery: string[];
+  liveUrl?: string;
+  duration?: string;
 };
 
 export const PROJECTS: Project[] = [

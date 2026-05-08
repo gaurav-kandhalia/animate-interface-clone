@@ -46,12 +46,12 @@ export function Approach() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-20%" }}
           transition={{ duration: 0.8 }}
-          className="font-display text-foreground whitespace-nowrap text-center"
+          className="font-display text-foreground text-center"
           style={{
             fontWeight: 600,
-            letterSpacing: "-0.02em",
+            letterSpacing: "0em",
             lineHeight: "0.9",
-            fontSize: "clamp(2rem, 7vw, 14rem)",
+            fontSize: "clamp(2rem, 5vw, 10rem)",
           }}
         >
           WE ARE BUZZ <br className="md:hidden"/> CULTURE

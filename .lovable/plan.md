@@ -1,5 +1,5 @@
 ns
-# Clone of floe (consistent-interface-326115.framer.app)
+# Clone of buzz culture (consistent-interface-326115.framer.app)
 
 A pixel-faithful rebuild of your Framer site using React (TanStack Start), Tailwind CSS v4, and Framer Motion for animations. Dark, minimal, big-type aesthetic with scroll-driven motion throughout.
 
@@ -21,10 +21,10 @@ A pixel-faithful rebuild of your Framer site using React (TanStack Start), Tailw
 
 ## Home page sections (in order)
 
-1. **Hero** — Massive "floe" wordmark filling viewport. Three info pills below: "Based in Ludhiana, Punjab" (📍), "Available all around Worldwide" (🌐), "Media Company + Framer Developer" (✓). Letters animate in with stagger + slight scale.
-2. **01 // Approach — Three Phases** — Heading "wearefloemedia&co." Three numbered phases (Discover & Analysis, Design & Implement, Deliver & Monitor), each with 3 stacked image cards that parallax/tilt on scroll. Below: a continuously scrolling marquee row of small image tiles.
+1. **Hero** — Massive "buzz culture" wordmark filling viewport. Three info pills below: "Based in Ludhiana, Punjab" (📍), "Available all around Worldwide" (🌐), "Media Company + Framer Developer" (✓). Letters animate in with stagger + slight scale.
+2. **01 // Approach — Three Phases** — Heading "buzz culture" Three numbered phases (Discover & Analysis, Design & Implement, Deliver & Monitor), each with 3 stacked image cards that parallax/tilt on scroll. Below: a continuously scrolling marquee row of small image tiles.
 3. **02 // Portfolio — Latest Portfolio (2020–2025)** — Three large project cards (Automobiles, Events & Production Photography, Fashion & Lifestyle Business) with hover image-zoom and label reveal. Each links to its `/work/...` route.
-4. **03 // Who Am I — More About floe** — Portrait image left, large statement copy right ("I'm an innovative designer…"), supporting paragraph. Scroll-reveal on text lines.
+4. **03 // Who Am I — More About buzz culture** — Portrait image left, large statement copy right ("I'm an innovative designer…"), supporting paragraph. Scroll-reveal on text lines.
 5. **04 // Services — Pro Services** — 5 service rows (Full Website Sprint, Motion Design, Full Design Package, React Development, Web Design) as expandable accordion-style list with hover underline + arrow. Side portrait image.
 6. **05 // Voice of Grey** — Long single-sentence statement that animates word-by-word on scroll. Horizontal scrolling gallery of 6 portrait images with drag/scroll interaction.
 7. **06 // Stats — Fun Facts** — 4 counters animating from 0 (Global Clients, Years of Experience, Awards Won, Success Rate %).
