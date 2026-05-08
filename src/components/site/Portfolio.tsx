@@ -13,12 +13,27 @@ export function Portfolio() {
       <div className="px-6 pt-18">
         <div className="flex md:items-end justify-between gap-8 flex-col md:flex-row ">
           <div className="leading-none">
-            <div className="font-display text-foreground uppercase font-semibold tracking-tight" style={{ fontSize: "clamp(4rem, 9vw, 14rem)", lineHeight: 0.85, letterSpacing: "-0.02em" }}>
-              Latest
-            </div>
-            <div className="font-display text-foreground uppercase font-semibold tracking-tight" style={{ fontSize: "clamp(4rem, 9vw, 14rem)", lineHeight: 0.85, letterSpacing: "-0.02em" }}>
-              Portfolio
-            </div>
+<div
+  className="font-display text-foreground uppercase font-semibold tracking-tight"
+  style={{
+    fontSize: "clamp(2.8rem, 9vw, 14rem)",
+    lineHeight: 0.85,
+    letterSpacing: "-0.02em",
+  }}
+>
+  Latest
+</div>
+
+<div
+  className="font-display text-foreground uppercase font-semibold tracking-tight"
+  style={{
+    fontSize: "clamp(2.8rem, 9vw, 14rem)",
+    lineHeight: 0.85,
+    letterSpacing: "-0.02em",
+  }}
+>
+  Portfolio
+</div>
           </div>
 
           <p className="max-w-xs text-white text-xl font-semibold leading-snug mb-2 flex-shrink-0">

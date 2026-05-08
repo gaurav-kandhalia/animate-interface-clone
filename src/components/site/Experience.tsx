@@ -7,6 +7,7 @@ import {
 
 import { useEffect, useState } from "react";
 import { EXPERIENCE } from "@/lib/site-data";
+import { SectionLabel } from "./SectionLabel";
 
 const images = [
   "https://framerusercontent.com/images/JwJTxroeEh0a7U32iDMSI6d6R8.jpg?scale-down-to=2048",
@@ -37,11 +38,9 @@ export function Experience() {
       </div>
 
       {/* TOP BAR */}
-      <div className="flex items-center justify-between px-8 pt-6 text-sm uppercase tracking-[0.2em] text-white/60">
-        <span>07</span>
-        <span>//Experience</span>
-        <span>2013 - Present</span>
-      </div>
+    
+
+          <SectionLabel number="07" category="// Experience" meta="2013 — Present" />
 
       {/* MAIN */}
       <div className="relative mt-24">

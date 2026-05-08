@@ -11,33 +11,54 @@ export function Services() {
 
       <div className="px-6 md:px-10 pt-16 pb-28 ">
         {/* HEADER */}
-        <div className="flex flex-col md:flex-row  md:items-end justify-between mb-16 ">
-          <motion.h2
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="font-[family-name:var(--font-display)] text-[clamp(4.5rem,11vw,9.5rem)] font-semibold tracking-[-0.02em] leading-[0.85] uppercase text-foreground"
-          >
-            Pro
-            <br />
-            Services
-          </motion.h2>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="font-[family-name:var(--font-display)] text-foreground text-xl font-medium leading-relaxed max-w-[300px] md:text-left "
-          >
-            Discover our range of services
-            <br />
-            designed to elevate your brand
-            <br />
-            to next level.
-          </motion.p>
-        </div>
+  <motion.h2
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.7 }}
+    className="
+      font-[family-name:var(--font-display)]
+      text-[clamp(3rem,11vw,9.5rem)]
+      font-semibold
+      tracking-[-0.02em]
+      leading-[0.85]
+      uppercase
+      text-foreground
+      break-words
+    "
+  >
+    Pro
+    <br />
+    Services
+  </motion.h2>
+
+  <motion.p
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.7, delay: 0.15 }}
+    className="
+      font-[family-name:var(--font-display)]
+      text-foreground
+      text-base
+      sm:text-lg
+      md:text-xl
+      font-medium
+      leading-relaxed
+      max-w-[300px]
+      md:text-left
+    "
+  >
+    Discover our range of services
+    <br />
+    designed to elevate your brand
+    <br />
+    to next level.
+  </motion.p>
+
+</div>
 
         {/* SERVICES LIST */}
         <ul className="border-t border-border/40 ">
